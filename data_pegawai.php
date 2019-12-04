@@ -41,11 +41,17 @@ Reservasi Hotel
       <li class="nav-item active">
         <a class="nav-link" href="index.php">Beranda<span class="sr-only">(current)</span></a>
       </li>
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="booking.php">Registrasi</a>
+     <!--  <li class="nav-item">
+        <a class="nav-link" href="#">Data Kamar</a>
       </li> -->
+      <li class="nav-item">
+        <a class="nav-link" href="data_tamu.php">Data Tamu</a>
+      </li>      
+      <li class="nav-item">
+        <a class="nav-link" href="data_pegawai.php">Data Pegawai</a>
+      </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Guest</a>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
         <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="logout.php">Logout</a>
         </div>
@@ -64,29 +70,25 @@ Reservasi Hotel
 </div>
 
 
-<div class="container-fluid  py-4">
-  <button onclick="goBack()" class="btn btn-info"><-- Kembali ke Menu Utama</button>
-</div>
-
-<div class="container-fluid mt-4">
-  <h2>Form Registrasi Kamar</h2>
+<div class="container-fluid mt-5">
+  <h1> Data Pegawai</h1>
 </div>
 <div class="container-fluid row justify-content-center">
   <div class="col-sm-6">
   <form class="mt-3" method="post">
-  <h5>Data Tamu :</h5>
+  <!-- <h5>Data Tamu :</h5> -->
 
   <div class="form-group col">
-    <label for="noregis" class="font-weight-bold col-sm-6 col-form-label">No Registrasi</label>
+    <label for="nip" class="font-weight-bold col-sm-6 col-form-label">NIP</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="noregis" name="noregis" placeholder="No Registrasi" required>
+      <input type="text" class="form-control" id="nip" name="nip" placeholder="NIP" required>
     </div>
   </div>
 
   <div class="form-group col">
-    <label for="namalengkap" class="font-weight-bold col-sm-6 col-form-label">Nama Lengkap</label>
+    <label for="namapegawai" class="font-weight-bold col-sm-6 col-form-label">Nama Pegawai</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="namalengkap" name="namalengkap" placeholder="Nama Lengkap" required>
+      <input type="text" class="form-control" id="namapegawai" name="namapegawai" placeholder="Nama Pegawai" required>
     </div>
   </div>
 
@@ -100,11 +102,17 @@ Reservasi Hotel
   <div class="form-group col">
     <label for="tgllahir" class="font-weight-bold col-sm-6 col-form-label">Tanggal Lahir</label>
     <div class="col-sm-8">
-      <input type="date" class="form-control" id="tgllahir" name="tgllahir" placeholder="" required>
+      <input type="date" class="form-control" id="tgllahir" name="tgllahir" placeholder="Tanggal Lahir" required>
     </div>
   </div>
 
-  <div class="form-group col">
+  </form>
+  </div>
+
+<div class="col-sm-6">
+  <form class="mt-3" method="post">
+
+ <div class="form-group col">
     <label for="jeniskelamin" class="font-weight-bold col-sm-6 col-form-label">Jenis Kelamin</label>
     <div class="col-sm-8">
       <select class="custom-select" id="jeniskelamin" name="jeniskelamin">
@@ -116,86 +124,36 @@ Reservasi Hotel
   </div>
 
   <div class="form-group col">
-    <label for="noktp" class="font-weight-bold col-sm-6 col-form-label">Nomor KTP</label>
-      <div class="col-sm-8">
-      <input type="text" class="form-control" id="noktp" placeholder="No KTP" name="noktp" required>
-      </div>
-  </div>
-
-  </form>
-  </div>
-
-<div class="col-sm-6">
-  <form class="mt-3" method="post">
-  <h5>Data Pesanan Kamar :</h5>
-
-  <div class="form-group col">
-    <!-- <span><?php echo $error; ?></span> -->
-    <label for="checkin" class="font-weight-bold col-sm-6 col-form-label">Tanggal Check In</label>
+    <label for="password" class="font-weight-bold col-sm-6 col-form-label">Password</label>
     <div class="col-sm-8">
-      <input type="date" class="form-control" id="checkin" name="checkin" placeholder="" required></input>
+      <input type="Password" class="form-control" id="password" name="password" placeholder="Password" required>
     </div>
   </div>
 
   <div class="form-group col">
-    <label for="checkout" class="font-weight-bold col-sm-6 col-form-label">Tanggal Check Out</label>
+    <label for="jabatan" class="font-weight-bold col-sm-6 col-form-label">Jabatan</label>
     <div class="col-sm-8">
-      <input type="date" class="form-control" id="checkout" name="checkout" placeholder="" required>
-    </div>
-  </div>
-
-  <div class="form-group col">
-    <label for="lamainap" class="font-weight-bold col-sm-6 col-form-label">Lama Inap</label>
-    <div class="col-sm-8">
-      <input type="text" class="form-control" id="lamainap" name="lamainap" placeholder="Lama Inap" required>
-    </div>
-  </div>
-
-  <div class="form-group col">
-    <label for="tipekamar" class="font-weight-bold col-sm-6 col-form-label">Tipe Kamar</label>
-    <div class="col-sm-8">
-      <select class="custom-select" id="tipekamar" name="tipekamar">
+      <select class="custom-select" id="jabatan" name="jabatan">
         <option selected>Pilih Salah Satu</option>
-        <option value="1">Kamar Kecil</option>
-        <option value="2">Kamar Sedang</option>
+        <option value="1">Laki-Laki</option>
+        <option value="2">Perempuan</option>
     </select>
     </div>
   </div>
 
-  <div class="form-group col">
-    <label for="nokamar" class="font-weight-bold col-sm-6 col-form-label">Nomor Kamar</label>
-    <div class="col-sm-8">
-      <select class="custom-select" id="nokamar" name="nokamar">
-        <option selected>Pilih Salah Satu</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-    </select>
-    </div>
-  </div>
-
-  <div class="form-group col">
-    <label for="hargakamar" class="font-weight-bold col-sm-6 col-form-label">Harga Kamar</label>
-    <div class="col-sm-8">
-      <input type="text" class="form-control" id="hargakamar" name="hargakamar" placeholder="Harga Kamar" required>
-    </div>
-  </div>
-
-  <!-- <div class="form-group col">
-    <label for="hargaobat" class="font-weight-bold col-sm-6 col-form-label">Nomor KTP</label>
-      <div class="col-sm-8">
-      <input type="text" class="form-control" id="hargaobat" placeholder="Harga Obat" name="hargaobat" required>
-      </div>
-  </div> -->
-
   </form>
   </div>
-  <button class="btn btn-info">Pesan Sekarang</button>
+  <div class="pt-4">
+   <!--  <button class="btn btn-info mr-sm-2 ">Edit</button>
+    <button class="btn btn-danger mr-sm-2">Check Out</button> -->
+  </div>
 </div>
 
 
-
-
-
+<div>
+  <h3>bas, disini nanti ada tombol search.</h3>
+  <h3>disini ada tabel untuk data pegawai</h3>
+</div>
 
 <!-- Footer -->
 <footer class="page-footer text-light font-small unique-color-dark pt-1 mt-4" style="background-color: #555555">
@@ -288,13 +246,6 @@ Reservasi Hotel
 </footer>
 
 </body>
-
-<script>
-function goBack() {
-  window.history.back()
-}
-</script>
-
 <script src="assets/jquery-3.4.1.min.js" type="text/javascript"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 </html>

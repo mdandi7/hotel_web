@@ -41,14 +41,14 @@ Reservasi Hotel
       <li class="nav-item active">
         <a class="nav-link" href="index.php">Beranda<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Data Tamu</a>
-      </li>
-      <li class="nav-item">
+     <!--  <li class="nav-item">
         <a class="nav-link" href="#">Data Kamar</a>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link" href="data_tamu.php">Data Tamu</a>
       </li>      
       <li class="nav-item">
-        <a class="nav-link" href="#">Data Pegawai</a>
+        <a class="nav-link" href="data_pegawai.php">Data Pegawai</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
@@ -71,7 +71,7 @@ Reservasi Hotel
 
 
 <div class="my-5">
-  <div class="container-fluid my-2">
+  <div class="container-fluid">
     <h1>Data Kamar</h1>
   </div>
   <div class="card-deck my-3 mx-2 text-justify">
@@ -109,10 +109,94 @@ Reservasi Hotel
 
 
 <!-- footer -->
-<footer class=" text-center text-light pb-2 pt-2" style="background-color: #333333;">
-  <p></p>
-	<p>&copy Copyright 2019 <strong>Hotel Bintang 7 Masuk Angin</strong></p>
-  <!-- <p>Allright Reserved</p> -->
+<!-- Footer -->
+<footer class="page-footer text-light font-small unique-color-dark pt-1 mt-4" style="background-color: #555555">
+
+  <!-- Footer Links -->
+  <div class="container text-justify text-md-left mt-5" >
+
+    <!-- Grid row -->
+    <div class="row mt-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4" >
+
+        <!-- Content -->
+        <h6 class="text-uppercase font-weight-bold">Company name</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+          consectetur
+          adipisicing elit.</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Another Link</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <a href="#!">MDBootstrap</a>
+        </p>
+        <p>
+          <a href="#!">MDWordPress</a>
+        </p>
+        <p>
+          <a href="#!">BrandFlow</a>
+        </p>
+        <p>
+          <a href="#!">Bootstrap Angular</a>
+        </p>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Social Media</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <a href="#!">Your Account</a>
+        </p>
+        <p>
+          <a href="#!">Become an Affiliate</a>
+        </p>
+        <p>
+          <a href="#!">Shipping Rates</a>
+        </p>
+        <p>
+          <a href="#!">Help</a>
+        </p>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Contact</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p> New York, NY 10012, US</p>
+        <p>info@example.com</p>
+        <p>+ 01 234 567 88</p>
+        <p>+ 01 234 567 89</p>
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3" style="background-color: #333333">© 2019 Copyright:
+    <a href="#">Hotel 757 Tahoa</a>, All right reserved.
+  </div>
+  <!-- Copyright -->
+
 </footer>
 
 

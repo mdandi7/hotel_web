@@ -77,37 +77,37 @@ Reservasi Hotel
   <h5>Data Tamu :</h5>
 
   <div class="form-group col">
-    <label for="noregis" class="font-weight-bold col-sm-6 col-form-label">No Registrasi</label>
+    <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">No Registrasi</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="noregis" name="noregis" placeholder="No Registrasi" required>
+      <input type="text" class="form-control" id="namaobat" name="namaobat" placeholder="Nama Obat" required>
     </div>
   </div>
 
   <div class="form-group col">
-    <label for="namalengkap" class="font-weight-bold col-sm-6 col-form-label">Nama Lengkap</label>
+    <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Nama</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="namalengkap" name="namalengkap" placeholder="Nama Lengkap" required>
+      <input type="text" class="form-control" id="namaobat" name="namaobat" placeholder="Nama Obat" required>
     </div>
   </div>
 
   <div class="form-group col">
-    <label for="alamat" class="font-weight-bold col-sm-6 col-form-label">Alamat</label>
+    <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Alamat</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat" required>
+      <input type="text" class="form-control" id="namaobat" name="namaobat" placeholder="Nama Obat" required>
     </div>
   </div>
 
   <div class="form-group col">
-    <label for="tgllahir" class="font-weight-bold col-sm-6 col-form-label">Tanggal Lahir</label>
+    <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Tanggal Lahir</label>
     <div class="col-sm-8">
-      <input type="date" class="form-control" id="tgllahir" name="tgllahir" placeholder="" required>
+      <input type="date" class="form-control" id="namaobat" name="namaobat" placeholder="Nama Obat" required>
     </div>
   </div>
 
   <div class="form-group col">
-    <label for="jeniskelamin" class="font-weight-bold col-sm-6 col-form-label">Jenis Kelamin</label>
+    <label for="jenisobat" class="font-weight-bold col-sm-6 col-form-label">Jenis Kelamin</label>
     <div class="col-sm-8">
-      <select class="custom-select" id="jeniskelamin" name="jeniskelamin">
+      <select class="custom-select" id="jenisobat" name="jenisobat">
         <option selected>Pilih Salah Satu</option>
         <option value="1">Laki-Laki</option>
         <option value="2">Perempuan</option>
@@ -116,9 +116,9 @@ Reservasi Hotel
   </div>
 
   <div class="form-group col">
-    <label for="noktp" class="font-weight-bold col-sm-6 col-form-label">Nomor KTP</label>
+    <label for="hargaobat" class="font-weight-bold col-sm-6 col-form-label">Nomor KTP</label>
       <div class="col-sm-8">
-      <input type="text" class="form-control" id="noktp" placeholder="No KTP" name="noktp" required>
+      <input type="text" class="form-control" id="hargaobat" placeholder="Harga Obat" name="hargaobat" required>
       </div>
   </div>
 
@@ -131,30 +131,30 @@ Reservasi Hotel
 
   <div class="form-group col">
     <!-- <span><?php echo $error; ?></span> -->
-    <label for="checkin" class="font-weight-bold col-sm-6 col-form-label">Tanggal Check In</label>
+    <label for="kodeobat" class="font-weight-bold col-sm-6 col-form-label">Tanggal Check In</label>
     <div class="col-sm-8">
-      <input type="date" class="form-control" id="checkin" name="checkin" placeholder="" required></input>
+      <input type="date" class="form-control" id="kodeobat" name="kodeobat" placeholder="Kode Obat" required></input>
     </div>
   </div>
 
   <div class="form-group col">
-    <label for="checkout" class="font-weight-bold col-sm-6 col-form-label">Tanggal Check Out</label>
+    <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Tanggal Check Out</label>
     <div class="col-sm-8">
-      <input type="date" class="form-control" id="checkout" name="checkout" placeholder="" required>
+      <input type="date" class="form-control" id="namaobat" name="namaobat" placeholder="Nama Obat" required>
     </div>
   </div>
 
   <div class="form-group col">
-    <label for="lamainap" class="font-weight-bold col-sm-6 col-form-label">Lama Inap</label>
+    <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Lama Inap</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="lamainap" name="lamainap" placeholder="Lama Inap" required>
+      <input type="text" class="form-control" id="namaobat" name="namaobat" placeholder="Nama Obat" required>
     </div>
   </div>
 
   <div class="form-group col">
-    <label for="tipekamar" class="font-weight-bold col-sm-6 col-form-label">Tipe Kamar</label>
+    <label for="jenisobat" class="font-weight-bold col-sm-6 col-form-label">Tipe Kamar</label>
     <div class="col-sm-8">
-      <select class="custom-select" id="tipekamar" name="tipekamar">
+      <select class="custom-select" id="jenisobat" name="jenisobat">
         <option selected>Pilih Salah Satu</option>
         <option value="1">Kamar Kecil</option>
         <option value="2">Kamar Sedang</option>
@@ -163,9 +163,9 @@ Reservasi Hotel
   </div>
 
   <div class="form-group col">
-    <label for="nokamar" class="font-weight-bold col-sm-6 col-form-label">Nomor Kamar</label>
+    <label for="jenisobat" class="font-weight-bold col-sm-6 col-form-label">Nomor Kamar</label>
     <div class="col-sm-8">
-      <select class="custom-select" id="nokamar" name="nokamar">
+      <select class="custom-select" id="jenisobat" name="jenisobat">
         <option selected>Pilih Salah Satu</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -174,9 +174,9 @@ Reservasi Hotel
   </div>
 
   <div class="form-group col">
-    <label for="hargakamar" class="font-weight-bold col-sm-6 col-form-label">Harga Kamar</label>
+    <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Harga Kamar</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="hargakamar" name="hargakamar" placeholder="Harga Kamar" required>
+      <input type="date" class="form-control" id="namaobat" name="namaobat" placeholder="Nama Obat" required>
     </div>
   </div>
 
