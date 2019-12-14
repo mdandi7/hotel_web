@@ -44,11 +44,14 @@ Reservasi Hotel
      <!--  <li class="nav-item">
         <a class="nav-link" href="#">Data Kamar</a>
       </li> -->
-      <li class="nav-item">
-        <a class="nav-link" href="data_tamu.php">Data Tamu</a>
-      </li>      
-      <li class="nav-item">
-        <a class="nav-link" href="data_pegawai.php">Data Pegawai</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">List Data</a>
+        <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="data_tamu.php">Data Tamu</a>
+          <a class="dropdown-item" href="data_kamar.php">Data Kamar</a>
+          <a class="dropdown-item" href="data_pegawai.php">Data Pegawai</a>
+          <a class="dropdown-item" href="data_booking.php">Data Booking</a>
+        </div>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>

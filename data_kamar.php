@@ -45,6 +45,15 @@ Reservasi Hotel
         <a class="nav-link" href="booking.php">Registrasi</a>
       </li> -->
       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">List Data</a>
+        <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="data_tamu.php">Data Tamu</a>
+          <a class="dropdown-item" href="data_kamar.php">Data Kamar</a>
+          <a class="dropdown-item" href="data_pegawai.php">Data Pegawai</a>
+          <a class="dropdown-item" href="data_booking.php">Data Booking</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Guest</a>
         <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="logout.php">Logout</a>
@@ -63,13 +72,8 @@ Reservasi Hotel
   </div>
 </div>
 
-
-<div class="container-fluid  py-4">
-  <button onclick="goBack()" class="btn btn-info"><-- Kembali ke Menu Utama</button>
-</div>
-
-<div class="container-fluid mt-4">
-  <h2>Form Registrasi Kamar</h2>
+<div class="container-fluid mt-5">
+  <h1>Form Registrasi Kamar</h1>
 </div>
 <div class="container-fluid row justify-content-center">
   <div class="col-sm-6">

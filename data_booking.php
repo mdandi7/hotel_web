@@ -45,6 +45,15 @@ Reservasi Hotel
         <a class="nav-link" href="booking.php">Registrasi</a>
       </li> -->
       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">List Data</a>
+        <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="data_tamu.php">Data Tamu</a>
+          <a class="dropdown-item" href="data_kamar.php">Data Kamar</a>
+          <a class="dropdown-item" href="data_pegawai.php">Data Pegawai</a>
+          <a class="dropdown-item" href="data_booking.php">Data Booking</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Guest</a>
         <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="logout.php">Logout</a>
@@ -63,48 +72,27 @@ Reservasi Hotel
   </div>
 </div>
 
-
-<div class="my-5">
-<div class="container-fluid my-2">
-  <h1>Data Kamar</h1>
+<div class="container mt-5 ">
+  <h1>Form Data Booking</h1>
 </div>
-  <div class="card-deck my-3 mx-2 text-justify">
-    <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Kamar Kecil</h5>
-        <p class="card-text">Fasilitas : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.</p>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Kamar Sedang</h5>
-        <p class="card-text">Fasilitas : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.</p>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Kamar Besar</h5>
-        <p class="card-text">Fasilitas : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.</p>
-      </div>
+<div class="container-fluid row justify-content-center">
+  <div class="col-sm-6">
+  <form class="mt-3 form-inline" method="post">
+  <h5>Data Tamu :</h5>
+  <div class="form-group col">
+    <!-- <label for="namaobat" class="font-weight-bold  col-form-label">No Registrasi</label> -->
+    <div class="col-sm-12">
+      <input class="form-control mr-sm-2" type="text" placeholder="No. Registrasi" aria-label="Search" name="like_namaobat">
+        <button class="btn btn-outline-info" type="submit" name="cariobat">Cari</button>
+        <!-- <button class="btn btn-outline-info" type="submit" name="cariobat">Check In</button> -->
     </div>
   </div>
-  <div class="container-fluid row justify-content-center">
-    <a class="btn btn-info text-justify" href="pesan_kamar.php" >Pesan Sekarang</a>     
+  </form>
   </div>
 </div>
 
-
-
-
-<!-- footer -->
 <!-- Footer -->
-<footer class="page-footer text-light font-small unique-color-dark pt-1" style="background-color: #555555">
+<footer class="page-footer text-light font-small unique-color-dark pt-1 mt-4" style="background-color: #555555">
 
   <!-- Footer Links -->
   <div class="container text-justify text-md-left mt-5" >
@@ -192,10 +180,15 @@ Reservasi Hotel
   <!-- Copyright -->
 
 </footer>
-<!-- Footer -->
-
 
 </body>
+
+<script>
+function goBack() {
+  window.history.back()
+}
+</script>
+
 <script src="assets/jquery-3.4.1.min.js" type="text/javascript"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 </html>

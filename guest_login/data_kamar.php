@@ -11,7 +11,7 @@ include "string.php";
 	<title><?php echo $nama_aplikasi ?></title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/bootstrap/css/bootstrap.min.css">
 
 	<style type="text/css">
 		.navbar {
@@ -39,22 +39,16 @@ Reservasi Hotel
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto mr-sm-2">
       <li class="nav-item active">
-        <a class="nav-link" href="index.php">Beranda<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="guest_login.php">Beranda<span class="sr-only">(current)</span></a>
       </li>
-     <!--  <li class="nav-item">
-        <a class="nav-link" href="#">Data Kamar</a>
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="booking.php">Registrasi</a>
       </li> -->
+      <li class="nav-item">
+        <a class="nav-link" href="data_kamar.php">Data Kamar</a>
+      </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">List Data</a>
-        <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="data_tamu.php">Data Tamu</a>
-          <a class="dropdown-item" href="data_kamar.php">Data Kamar</a>
-          <a class="dropdown-item" href="data_pegawai.php">Data Pegawai</a>
-          <a class="dropdown-item" href="data_booking.php">Data Booking</a>
-        </div>
-      </li>>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Guest</a>
         <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="logout.php">Logout</a>
         </div>
@@ -72,41 +66,58 @@ Reservasi Hotel
   </div>
 </div>
 
-
 <div class="container-fluid mt-5">
-  <h1> Data Pegawai</h1>
+  <h1>Form Registrasi Kamar</h1>
 </div>
 <div class="container-fluid row justify-content-center">
   <div class="col-sm-6">
   <form class="mt-3" method="post">
-  <!-- <h5>Data Tamu :</h5> -->
+  <h5>Data Tamu :</h5>
 
   <div class="form-group col">
-    <label for="nip" class="font-weight-bold col-sm-6 col-form-label">NIP</label>
+    <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">No Registrasi</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="nip" name="nip" placeholder="NIP" required>
+      <input type="text" class="form-control" id="namaobat" name="namaobat" placeholder="Nama Obat" required>
     </div>
   </div>
 
   <div class="form-group col">
-    <label for="namapegawai" class="font-weight-bold col-sm-6 col-form-label">Nama Pegawai</label>
+    <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Nama</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="namapegawai" name="namapegawai" placeholder="Nama Pegawai" required>
+      <input type="text" class="form-control" id="namaobat" name="namaobat" placeholder="Nama Obat" required>
     </div>
   </div>
 
   <div class="form-group col">
-    <label for="alamat" class="font-weight-bold col-sm-6 col-form-label">Alamat</label>
+    <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Alamat</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat" required>
+      <input type="text" class="form-control" id="namaobat" name="namaobat" placeholder="Nama Obat" required>
     </div>
   </div>
 
   <div class="form-group col">
-    <label for="tgllahir" class="font-weight-bold col-sm-6 col-form-label">Tanggal Lahir</label>
+    <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Tanggal Lahir</label>
     <div class="col-sm-8">
-      <input type="date" class="form-control" id="tgllahir" name="tgllahir" placeholder="Tanggal Lahir" required>
+      <input type="date" class="form-control" id="namaobat" name="namaobat" placeholder="Nama Obat" required>
     </div>
+  </div>
+
+  <div class="form-group col">
+    <label for="jenisobat" class="font-weight-bold col-sm-6 col-form-label">Jenis Kelamin</label>
+    <div class="col-sm-8">
+      <select class="custom-select" id="jenisobat" name="jenisobat">
+        <option selected>Pilih Salah Satu</option>
+        <option value="1">Laki-Laki</option>
+        <option value="2">Perempuan</option>
+    </select>
+    </div>
+  </div>
+
+  <div class="form-group col">
+    <label for="hargaobat" class="font-weight-bold col-sm-6 col-form-label">Nomor KTP</label>
+      <div class="col-sm-8">
+      <input type="text" class="form-control" id="hargaobat" placeholder="Harga Obat" name="hargaobat" required>
+      </div>
   </div>
 
   </form>
@@ -114,49 +125,75 @@ Reservasi Hotel
 
 <div class="col-sm-6">
   <form class="mt-3" method="post">
+  <h5>Data Pesanan Kamar :</h5>
 
- <div class="form-group col">
-    <label for="jeniskelamin" class="font-weight-bold col-sm-6 col-form-label">Jenis Kelamin</label>
+  <div class="form-group col">
+    <!-- <span><?php echo $error; ?></span> -->
+    <label for="kodeobat" class="font-weight-bold col-sm-6 col-form-label">Tanggal Check In</label>
     <div class="col-sm-8">
-      <select class="custom-select" id="jeniskelamin" name="jeniskelamin">
+      <input type="date" class="form-control" id="kodeobat" name="kodeobat" placeholder="Kode Obat" required></input>
+    </div>
+  </div>
+
+  <div class="form-group col">
+    <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Tanggal Check Out</label>
+    <div class="col-sm-8">
+      <input type="date" class="form-control" id="namaobat" name="namaobat" placeholder="Nama Obat" required>
+    </div>
+  </div>
+
+  <div class="form-group col">
+    <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Lama Inap</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="namaobat" name="namaobat" placeholder="Nama Obat" required>
+    </div>
+  </div>
+
+  <div class="form-group col">
+    <label for="jenisobat" class="font-weight-bold col-sm-6 col-form-label">Tipe Kamar</label>
+    <div class="col-sm-8">
+      <select class="custom-select" id="jenisobat" name="jenisobat">
         <option selected>Pilih Salah Satu</option>
-        <option value="1">Laki-Laki</option>
-        <option value="2">Perempuan</option>
+        <option value="1">Kamar Kecil</option>
+        <option value="2">Kamar Sedang</option>
     </select>
     </div>
   </div>
 
   <div class="form-group col">
-    <label for="password" class="font-weight-bold col-sm-6 col-form-label">Password</label>
+    <label for="jenisobat" class="font-weight-bold col-sm-6 col-form-label">Nomor Kamar</label>
     <div class="col-sm-8">
-      <input type="Password" class="form-control" id="password" name="password" placeholder="Password" required>
+      <select class="custom-select" id="jenisobat" name="jenisobat">
+        <option selected>Pilih Salah Satu</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+    </select>
     </div>
   </div>
 
   <div class="form-group col">
-    <label for="jabatan" class="font-weight-bold col-sm-6 col-form-label">Jabatan</label>
+    <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Harga Kamar</label>
     <div class="col-sm-8">
-      <select class="custom-select" id="jabatan" name="jabatan">
-        <option selected>Pilih Salah Satu</option>
-        <option value="1">Laki-Laki</option>
-        <option value="2">Perempuan</option>
-    </select>
+      <input type="date" class="form-control" id="namaobat" name="namaobat" placeholder="Nama Obat" required>
     </div>
   </div>
+
+  <!-- <div class="form-group col">
+    <label for="hargaobat" class="font-weight-bold col-sm-6 col-form-label">Nomor KTP</label>
+      <div class="col-sm-8">
+      <input type="text" class="form-control" id="hargaobat" placeholder="Harga Obat" name="hargaobat" required>
+      </div>
+  </div> -->
 
   </form>
   </div>
-  <div class="pt-4">
-   <!--  <button class="btn btn-info mr-sm-2 ">Edit</button>
-    <button class="btn btn-danger mr-sm-2">Check Out</button> -->
-  </div>
+  <button class="btn btn-info">Pesan Sekarang</button>
 </div>
 
 
-<div>
-  <h3>bas, disini nanti ada tombol search.</h3>
-  <h3>disini ada tabel untuk data pegawai</h3>
-</div>
+
+
+
 
 <!-- Footer -->
 <footer class="page-footer text-light font-small unique-color-dark pt-1 mt-4" style="background-color: #555555">
@@ -249,6 +286,13 @@ Reservasi Hotel
 </footer>
 
 </body>
-<script src="assets/jquery-3.4.1.min.js" type="text/javascript"></script>
-<script src="assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+<script>
+function goBack() {
+  window.history.back()
+}
+</script>
+
+<script src="../assets/jquery-3.4.1.min.js" type="text/javascript"></script>
+<script src="../assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 </html>

@@ -27,7 +27,7 @@ include "login.php";
 				    </label>
 				  </div>
 				  <input class="btn btn-lg btn-primary btn-block" type="submit" name="submit" id='submit'></input>
-				  <div class="mt-2 font-weight-bold"><a href="guest_login.php">Login as Guest !</a></div>
+				  <div class="mt-2 font-weight-bold"><a href="guest_login/guest_login.php">Login as Guest !</a></div>
 				  <p class="mt-5 mb-3 text-muted">&copy; Reservasi Hotel</p>
 				</form>
 			</section>

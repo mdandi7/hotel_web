@@ -1,6 +1,6 @@
 <?php
 include "string.php";
-include "configdb.php";
+// include "configdb.php";
 
 // $con = OpenCon();
 ?>
@@ -8,18 +8,18 @@ include "configdb.php";
 <!DOCTYPE html>
 <html>
 <head>
-	<title><?php echo $nama_aplikasi ?></title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css">
+  <title><?php echo $nama_aplikasi ?></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="../assets/bootstrap/css/bootstrap.min.css">
 
-	<style type="text/css">
-		.navbar {
-			padding: .8rem;
-		}
-		.navbar-nav li {
-			padding-right: 20px;
-		}
+  <style type="text/css">
+    .navbar {
+      padding: .8rem;
+    }
+    .navbar-nav li {
+      padding-right: 20px;
+    }
     @media (min-width: 768px) {
 .carousel-multi-item-2 .col-md-3 {
 float: left;
@@ -28,7 +28,7 @@ max-width: 100%; } }
 
 .carousel-multi-item-2 .card img {
 border-radius: 2px; }
-	</style>
+  </style>
 </head>
 <body class="text-monospace">
 
@@ -43,24 +43,15 @@ Reservasi Hotel
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto mr-sm-2">
       <li class="nav-item active">
-        <a class="nav-link" href="index.php">Beranda<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="guest_login.php">Beranda<span class="sr-only">(current)</span></a>
       </li>
-     <!--  <li class="nav-item">
-        <a class="nav-link" href="#">Data Kamar</a>
-      </li> -->
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">List Data</a>
-        <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="data_tamu.php">Data Tamu</a>
-          <a class="dropdown-item" href="data_kamar.php">Data Kamar</a>
-          <a class="dropdown-item" href="data_pegawai.php">Data Pegawai</a>
-          <a class="dropdown-item" href="data_booking.php">Data Booking</a>
-        </div>
+      <li class="nav-item">
+        <a class="nav-link" href="data_kamar.php">Data Kamar</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Guest</a>
         <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="logout.php">Logout</a>
+          <a class="dropdown-item" href="../logout.php">Logout</a>
         </div>
       </li>
     </ul>
@@ -324,6 +315,6 @@ Reservasi Hotel
 
 </body>
 
-<script src="assets/jquery-3.4.1.min.js" type="text/javascript"></script>
-<script src="assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../assets/jquery-3.4.1.min.js" type="text/javascript"></script>
+<script src="../assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 </html>
