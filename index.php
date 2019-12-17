@@ -201,7 +201,7 @@ Reservasi Hotel
   </div>
   <div class="card-deck my-3 mx-2 text-justify">
     <div class="card">
-      <a href="pesan_kamar.php"><img class="card-img-top" height="300" src="1.jpg" href="pesan_kamar.php" alt="Card image cap"></a>
+      <a href="#"><img class="card-img-top" height="300" src="1.jpg" href="pesan_kamar.php" alt="Card image cap"></a>
       <div class="card-body">
         <h5 class="card-title font-weight-bold">Single Room</h5>
         <p class="card-text">Fasilitas : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -209,7 +209,7 @@ Reservasi Hotel
       </div>
     </div>
     <div class="card">
-      <a href="pesan_kamar.php"><img class="card-img-top" height="300" src="2.jpg" alt="Card image cap"></a>
+      <a href="#"><img class="card-img-top" height="300" src="2.jpg" alt="Card image cap"></a>
       <div class="card-body">
         <h5 class="card-title font-weight-bold">Family Room</h5>
         <p class="card-text">Fasilitas : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -217,7 +217,7 @@ Reservasi Hotel
       </div>
     </div>
     <div class="card">
-      <a href="pesan_kamar.php"><img class="card-img-top" src="3jpg.jpg" height="300" alt="Card image cap"></a>
+      <a href="#"><img class="card-img-top" src="3jpg.jpg" height="300" alt="Card image cap"></a>
       <div class="card-body">
         <h5 class="card-title font-weight-bold">Deluxe Room</h5>
         <p class="card-text">Fasilitas : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

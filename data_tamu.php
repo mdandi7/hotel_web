@@ -82,10 +82,10 @@ Reservasi Hotel
   <!-- <h5>Data Tamu :</h5> -->
 
   <div class="form-group col">
-    <label for="noregis" class="font-weight-bold col-sm-6 col-form-label">No Registrasi</label>
-    <div class="col-sm-8">
-      <input type="text" class="form-control" id="noregis" name="noregis" placeholder="No Registrasi" required>
-    </div>
+    <label for="noktp" class="font-weight-bold col-sm-6 col-form-label">Nomor KTP</label>
+      <div class="col-sm-8">
+      <input type="text" class="form-control" id="noktp" placeholder="Nomor KTP" name="noktp" required>
+      </div>
   </div>
 
   <div class="form-group col">
@@ -124,13 +124,6 @@ Reservasi Hotel
     <div class="col-sm-8">
       <input type="date" class="form-control" id="tgllahir" name="tgllahir" placeholder="" required>
     </div>
-  </div>
-
-  <div class="form-group col">
-    <label for="noktp" class="font-weight-bold col-sm-6 col-form-label">Nomor KTP</label>
-      <div class="col-sm-8">
-      <input type="text" class="form-control" id="noktp" placeholder="Nomor KTP" name="noktp" required>
-      </div>
   </div>
 
   </form>

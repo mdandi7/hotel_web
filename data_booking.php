@@ -78,11 +78,11 @@ Reservasi Hotel
 <div class="container-fluid row justify-content-center">
   <div class="col-sm-6">
   <form class="mt-3 form-inline" method="post">
-  <h5>Data Tamu :</h5>
+  <h5>Cari Berdasarkan No. KTP :</h5>
   <div class="form-group col">
     <!-- <label for="namaobat" class="font-weight-bold  col-form-label">No Registrasi</label> -->
     <div class="col-sm-12">
-      <input class="form-control mr-sm-2" type="text" placeholder="No. Registrasi" aria-label="Search" name="like_namaobat">
+      <input class="form-control mr-sm-2" type="text" placeholder="No. KTP" aria-label="Search" name="like_namaobat">
         <button class="btn btn-outline-info" type="submit" name="cariobat">Cari</button>
         <!-- <button class="btn btn-outline-info" type="submit" name="cariobat">Check In</button> -->
     </div>

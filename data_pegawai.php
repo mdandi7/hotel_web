@@ -96,16 +96,9 @@ Reservasi Hotel
   </div>
 
   <div class="form-group col">
-    <label for="alamat" class="font-weight-bold col-sm-6 col-form-label">Alamat</label>
+    <label for="password" class="font-weight-bold col-sm-6 col-form-label">Password</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat" required>
-    </div>
-  </div>
-
-  <div class="form-group col">
-    <label for="tgllahir" class="font-weight-bold col-sm-6 col-form-label">Tanggal Lahir</label>
-    <div class="col-sm-8">
-      <input type="date" class="form-control" id="tgllahir" name="tgllahir" placeholder="Tanggal Lahir" required>
+      <input type="Password" class="form-control" id="password" name="password" placeholder="Password" required>
     </div>
   </div>
 
@@ -127,20 +120,16 @@ Reservasi Hotel
   </div>
 
   <div class="form-group col">
-    <label for="password" class="font-weight-bold col-sm-6 col-form-label">Password</label>
+    <label for="tgllahir" class="font-weight-bold col-sm-6 col-form-label">Tanggal Lahir</label>
     <div class="col-sm-8">
-      <input type="Password" class="form-control" id="password" name="password" placeholder="Password" required>
+      <input type="date" class="form-control" id="tgllahir" name="tgllahir" placeholder="Tanggal Lahir" required>
     </div>
   </div>
-
+  
   <div class="form-group col">
-    <label for="jabatan" class="font-weight-bold col-sm-6 col-form-label">Jabatan</label>
+    <label for="alamat" class="font-weight-bold col-sm-6 col-form-label">Alamat</label>
     <div class="col-sm-8">
-      <select class="custom-select" id="jabatan" name="jabatan">
-        <option selected>Pilih Salah Satu</option>
-        <option value="1">Laki-Laki</option>
-        <option value="2">Perempuan</option>
-    </select>
+      <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat" required>
     </div>
   </div>
 
