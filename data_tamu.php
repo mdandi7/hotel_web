@@ -73,70 +73,27 @@ Reservasi Hotel
 </div>
 
 
-<div class="container-fluid mt-5">
-  <h1> Data Tamu</h1>
+<div class="container mt-5 ">
+  <h1>Data Tamu</h1>
 </div>
 <div class="container-fluid row justify-content-center">
   <div class="col-sm-6">
-  <form class="mt-3" method="post">
-  <!-- <h5>Data Tamu :</h5> -->
-
+  <form class="mt-3 form-inline" method="post">
+  <h5>Cari Berdasarkan No. KTP :</h5>
   <div class="form-group col">
-    <label for="noktp" class="font-weight-bold col-sm-6 col-form-label">Nomor KTP</label>
-      <div class="col-sm-8">
-      <input type="text" class="form-control" id="noktp" placeholder="Nomor KTP" name="noktp" required>
-      </div>
-  </div>
-
-  <div class="form-group col">
-    <label for="namatamu" class="font-weight-bold col-sm-6 col-form-label">Nama Tamu</label>
-    <div class="col-sm-8">
-      <input type="text" class="form-control" id="namatamu" name="namatamu" placeholder="Nama Tamu" required>
+    <!-- <label for="namaobat" class="font-weight-bold  col-form-label">No Registrasi</label> -->
+    <div class="col-sm-12">
+      <input class="form-control mr-sm-2" type="text" placeholder="No. KTP" aria-label="Search" name="like_namaobat">
+        <button class="btn btn-outline-info" type="submit" name="cariobat">Cari</button>
+        <!-- <button class="btn btn-outline-info" type="submit" name="cariobat">Check In</button> -->
     </div>
   </div>
-
-  <div class="form-group col">
-    <label for="jeniskelamin" class="font-weight-bold col-sm-6 col-form-label">Jenis Kelamin</label>
-    <div class="col-sm-8">
-      <select class="custom-select" id="jeniskelamin" name="jeniskelamin">
-        <option selected>Pilih Salah Satu</option>
-        <option value="1">Laki-Laki</option>
-        <option value="2">Perempuan</option>
-    </select>
-    </div>
-  </div>
-
   </form>
-  </div>
-
-<div class="col-sm-6">
-  <form class="mt-3" method="post">
-
- <div class="form-group col">
-    <label for="alamat" class="font-weight-bold col-sm-6 col-form-label">Alamat</label>
-    <div class="col-sm-8">
-      <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat" required>
-    </div>
-  </div>
-
- <div class="form-group col">
-    <label for="tgllahir" class="font-weight-bold col-sm-6 col-form-label">Tanggal Lahir</label>
-    <div class="col-sm-8">
-      <input type="date" class="form-control" id="tgllahir" name="tgllahir" placeholder="" required>
-    </div>
-  </div>
-
-  </form>
-  </div>
-  <div class="pt-4">
-    <button class="btn btn-info mr-sm-2 ">Edit</button>
-    <button class="btn btn-danger mr-sm-2">Check Out</button>
   </div>
 </div>
 
 
 <div>
-  <h3>bas, disini nanti ada tombol search.</h3>
   <h3>disini ada tabel untuk data tamu</h3>
 </div>
 

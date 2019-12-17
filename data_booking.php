@@ -54,7 +54,7 @@ Reservasi Hotel
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Guest</a>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
         <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="logout.php">Logout</a>
         </div>
@@ -73,7 +73,7 @@ Reservasi Hotel
 </div>
 
 <div class="container mt-5 ">
-  <h1>Form Data Booking</h1>
+  <h1>Data Booking</h1>
 </div>
 <div class="container-fluid row justify-content-center">
   <div class="col-sm-6">
