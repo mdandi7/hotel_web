@@ -49,10 +49,7 @@ Reservasi Hotel
         <a class="nav-link" href="book_kamar.php">Booking Room</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Guest</a>
-        <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="../logout.php">Logout</a>
-        </div>
+        <a class="nav-link" href="../ind-login.php" id="navbarDropdown" aria-expanded="false">Login</a>
       </li>
     </ul>
   </div>
@@ -181,44 +178,6 @@ Reservasi Hotel
   <!--/.Controls-->
 </div>
 </div>
-
-
-<div class="my-5">
-  <div class="container-fluid mt-5">
-    <div class="container-fluid row justify-content-center">
-      <h2 class="text-center font-weight-bold">Book a room</h2>
-    <!-- <a class="btn btn-info text-justify" href="pesan_kamar.php">Pesan Kamar Sekarang</a> -->
-    </div>
-  </div>
-  <div class="card-deck my-3 mx-2 text-justify">
-    <div class="card">
-      <a href="#"><img class="card-img-top" height="300" src="1.jpg" href="pesan_kamar.php" alt="Card image cap"></a>
-      <div class="card-body">
-        <h5 class="card-title font-weight-bold">Single Room</h5>
-        <p class="card-text">Fasilitas : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.</p>
-      </div>
-    </div>
-    <div class="card">
-      <a href="#"><img class="card-img-top" height="300" src="2.jpg" alt="Card image cap"></a>
-      <div class="card-body">
-        <h5 class="card-title font-weight-bold">Family Room</h5>
-        <p class="card-text">Fasilitas : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.</p>
-      </div>
-    </div>
-    <div class="card">
-      <a href="#"><img class="card-img-top" src="3jpg.jpg" height="300" alt="Card image cap"></a>
-      <div class="card-body">
-        <h5 class="card-title font-weight-bold">Deluxe Room</h5>
-        <p class="card-text">Fasilitas : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 
 
 <!-- footer -->

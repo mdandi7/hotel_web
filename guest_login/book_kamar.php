@@ -25,6 +25,10 @@ include "string.php";
 			height: 100%;
 		}
 	</style>
+
+  <script src="../assets/jquery-3.4.1.min.js"></script>
+  <script src="../assets/jsFunction.js"></script>
+
 </head>
 <body class="text-monospace">
 
@@ -38,20 +42,17 @@ Reservasi Hotel
 </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto mr-sm-2">
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="guest_login.php">Home<span class="sr-only">(current)</span></a>
       </li>
       <!-- <li class="nav-item">
         <a class="nav-link" href="booking.php">Registrasi</a>
       </li> -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="data_kamar.php">Booking Room</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Guest</a>
-        <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="logout.php">Logout</a>
-        </div>
+        <a class="nav-link" href="../ind-login.php" id="navbarDropdown" aria-expanded="false">Login</a>
       </li>
     </ul>
   </div>
@@ -66,114 +67,156 @@ Reservasi Hotel
   </div>
 </div>
 
-<div class="container-fluid mt-5">
-  <h1>Form Registrasi Kamar</h1>
-</div>
-<div class="container-fluid row justify-content-center">
-  <div class="col-sm-6">
-  <form class="mt-3" method="post">
-  <h5>Data Tamu :</h5>
+<div class="accordion container py-4" id="accordionExample">
+  <div class="card" >
+    <div class="card-header" style="background-color: #333333;" id="headingOne">
+      <h1 class="text-center text-light">Book A Room
+    <h2 class="mb-0 text-center">
+    <button class="btn btn-outline-info btn-room" type="button" data-room="1" room-name="Single Room">
+      <img class="card-img-top" height="300" src="1.jpg" alt="Card image cap"><br>Single Room
+    </button>
+    <!-- <a style="font-size: 35px;" class="text-light font-weight-light">|</a> -->
+    <button class="btn btn-outline-info btn-room" type="button" data-room="2" room-name="Family Room">
+      <img class="card-img-top" height="300" src="2.jpg" alt="Card image cap"><br>Family Room
+    </button>
+    <!-- <a style="font-size: 35px;" class="text-light font-weight-light">|</a> -->
+    <button class="btn btn-outline-info btn-room" type="button" data-room="3" room-name="Luxury Room">
+      <img class="card-img-top" height="300" src="1.jpg" alt="Card image cap"><br>Luxury Room
+    </button>
+    </h2>
+    </h1>
+    </div>
 
-  <div class="form-group col">
-    <label for="hargaobat" class="font-weight-bold col-sm-6 col-form-label">No. KTP</label>
-      <div class="col-sm-8">
-      <input type="text" class="form-control" id="hargaobat" placeholder="No. KTP" name="hargaobat" required>
+    <!-- FORM BOOKING -->
+        <!-- FORM TAMU DETAIL -->
+        <div class="container-fluid row justify-content-center">
+          <div class="col-sm-6">
+          <form class="mt-3 form-tamu-detail" method="post">
+          <h5>Data Tamu :</h5>
+          <div class="alert-add" align="center" style="color: red"></div>
+          <div class="form-group col">
+            <label for="hargaobat" class="font-weight-bold col-sm-6 col-form-label">No. KTP</label>
+              <div class="col-sm-8">
+              <input type="text" class="form-control" id="idKtp" placeholder="No. KTP" required>
+              </div>
+          </div>
+
+          <div class="form-group col">
+            <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Nama</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="nama" placeholder="Nama" required>
+            </div>
+          </div>
+
+          <div class="form-group col">
+            <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label no-HP">No. Hp</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="noHP" placeholder="No.HP" required="required">
+            </div>
+          </div>
+          
+          <div class="form-group col">
+            <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label email-tx">Email</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="email" placeholder="Email" required="required">
+            </div>
+          </div>
+
+          <div class="form-group col">
+            <label for="jenisobat" class="font-weight-bold col-sm-6 col-form-label">Jumlah Penginap</label>
+            <div class="col-sm-8">
+              <input type="number" class="form-control" id="jmlOrg" placeholder="Jumlah Penginap" required="required">
+            </div>
+          </div>
+
+          </form>
+          </div>
+
+          <!-- FORM KAMAR -->
+          <div class="col-sm-6">
+          <form class="mt-3" method="post">
+          <h5>Data Pesanan Kamar :</h5>
+
+          <div class="form-group col">
+            <!-- <span><?php echo $error; ?></span> -->
+            <div class="col-sm-8">
+              <input type="text" class="form-control room-name" readonly="readonly" placeholder="Nama Room"></input>
+            </div>
+          </div>
+
+          <div class="form-group col">
+            <!-- <span><?php echo $error; ?></span> -->
+            <label for="kodeobat" class="font-weight-bold col-sm-6 col-form-label">Tanggal Check In</label>
+            <div class="col-sm-8">
+              <input type="date" class="form-control tgl-chck tgl-checkin"></input>
+            </div>
+          </div>
+
+          <div class="form-group col">
+            <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Tanggal Check Out</label>
+            <div class="col-sm-8">
+              <input type="date" class="form-control tgl-chck tgl-checkout">
+            </div>
+          </div>
+
+          <div class="form-group col">
+            <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Lama Inap</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="LmInap" placeholder="Lama Inap" readonly="readonly">
+            </div>
+          </div>
+
+          <div class="form-group col">
+            <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Harga Kamar</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="hrgKmr" placeholder="Harga Kamar" readonly="readonly">
+            </div>
+          </div>
+
+          </form>
+          </div>
+          <button class="btn btn-info mt-4 btn-order">Pesan Sekarang</button>
+        </div>
       </div>
-  </div>
+      <!-- FORM BOOKING -->
+    </div>
 
-  <div class="form-group col">
-    <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Nama</label>
-    <div class="col-sm-8">
-      <input type="text" class="form-control" id="namaobat" name="namaobat" placeholder="Nama" required>
+
+<!-- CARD PALING BAWAH -->
+<div class="my-5">
+  <div class="container-fluid mt-5">
+    <div class="container-fluid row justify-content-center">
+      <h2 class="text-center font-weight-bold">Book a room</h2>
+    <!-- <a class="btn btn-info text-justify" href="pesan_kamar.php">Pesan Kamar Sekarang</a> -->
     </div>
   </div>
-
-  <div class="form-group col">
-    <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Alamat</label>
-    <div class="col-sm-8">
-      <input type="text" class="form-control" id="namaobat" name="namaobat" placeholder="Alamat" required>
-    </div>
-  </div>
-
-  <div class="form-group col">
-    <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Tanggal Lahir</label>
-    <div class="col-sm-8">
-      <input type="date" class="form-control" id="namaobat" name="namaobat" placeholder="Nama Obat" required>
-    </div>
-  </div>
-
-  <div class="form-group col">
-    <label for="jenisobat" class="font-weight-bold col-sm-6 col-form-label">Jenis Kelamin</label>
-    <div class="col-sm-8">
-      <select class="custom-select" id="jenisobat" name="jenisobat">
-        <option selected>Pilih Salah Satu</option>
-        <option value="1">Laki-Laki</option>
-        <option value="2">Perempuan</option>
-    </select>
-    </div>
-  </div>
-
-  </form>
-  </div>
-
-<div class="col-sm-6">
-  <form class="mt-3" method="post">
-  <h5>Data Pesanan Kamar :</h5>
-
-  <div class="form-group col">
-    <!-- <span><?php echo $error; ?></span> -->
-    <label for="kodeobat" class="font-weight-bold col-sm-6 col-form-label">Tanggal Check In</label>
-    <div class="col-sm-8">
-      <input type="date" class="form-control" id="kodeobat" name="kodeobat" placeholder="Kode Obat" required></input>
-    </div>
-  </div>
-
-  <div class="form-group col">
-    <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Tanggal Check Out</label>
-    <div class="col-sm-8">
-      <input type="date" class="form-control" id="namaobat" name="namaobat" placeholder="Nama Obat" required>
-    </div>
-  </div>
-
-  <div class="form-group col">
-    <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Lama Inap</label>
-    <div class="col-sm-8">
-      <input type="text" class="form-control" id="namaobat" name="namaobat" placeholder="Lama Inap" required>
-    </div>
-  </div>
-
-  <div class="form-group col">
-    <label for="jenisobat" class="font-weight-bold col-sm-6 col-form-label">Tipe Kamar</label>
-    <div class="col-sm-8">
-      <select class="custom-select" id="jenisobat" name="jenisobat">
-        <option selected>Pilih Salah Satu</option>
-        <option value="1">Kamar Kecil</option>
-        <option value="2">Kamar Sedang</option>
-    </select>
-    </div>
-  </div>
-
-  <div class="form-group col">
-    <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Harga Kamar</label>
-    <div class="col-sm-8">
-      <input type="text" class="form-control" id="namaobat" name="namaobat" placeholder="Harga Kamar" required>
-    </div>
-  </div>
-
-  <!-- <div class="form-group col">
-    <label for="hargaobat" class="font-weight-bold col-sm-6 col-form-label">Nomor KTP</label>
-      <div class="col-sm-8">
-      <input type="text" class="form-control" id="hargaobat" placeholder="Harga Obat" name="hargaobat" required>
+  <div class="card-deck my-3 mx-2 text-justify">
+    <div class="card">
+      <a href="#"><img class="card-img-top" height="300" src="1.jpg" href="pesan_kamar.php" alt="Card image cap"></a>
+      <div class="card-body">
+        <h5 class="card-title font-weight-bold">Single Room</h5>
+        <p class="card-text">Fasilitas : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.</p>
       </div>
-  </div> -->
-
-  </form>
+    </div>
+    <div class="card">
+      <a href="#"><img class="card-img-top" height="300" src="2.jpg" alt="Card image cap"></a>
+      <div class="card-body">
+        <h5 class="card-title font-weight-bold">Family Room</h5>
+        <p class="card-text">Fasilitas : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+    </div>
+    <div class="card">
+      <a href="#"><img class="card-img-top" src="3jpg.jpg" height="300" alt="Card image cap"></a>
+      <div class="card-body">
+        <h5 class="card-title font-weight-bold">Deluxe Room</h5>
+        <p class="card-text">Fasilitas : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+    </div>
   </div>
-  <button class="btn btn-info mt-4">Pesan Sekarang</button>
 </div>
-
-
-
 
 
 

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Des 2019 pada 04.11
--- Versi server: 10.1.36-MariaDB
--- Versi PHP: 7.2.11
+-- Generation Time: Jan 10, 2020 at 04:32 PM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `room_dim`
+--
+
+CREATE TABLE `room_dim` (
+  `room_id` int(11) NOT NULL,
+  `room_name` varchar(50) NOT NULL,
+  `room_price` int(11) NOT NULL,
+  `room_total` int(11) NOT NULL,
+  `room_avail` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `room_dim`
+--
+
+INSERT INTO `room_dim` (`room_id`, `room_name`, `room_price`, `room_total`, `room_avail`) VALUES
+(1, 'Single Room', 200000, 20, 20),
+(2, 'Family Room', 300000, 25, 25),
+(3, 'Luxury Room', 800000, 25, 25);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -38,7 +61,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_id`, `nama`, `username`, `password`, `email`, `user_ind`) VALUES
@@ -50,17 +73,29 @@ INSERT INTO `user` (`user_id`, `nama`, `username`, `password`, `email`, `user_in
 --
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `room_dim`
+--
+ALTER TABLE `room_dim`
+  ADD PRIMARY KEY (`room_id`);
+
+--
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `room_dim`
+--
+ALTER TABLE `room_dim`
+  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
