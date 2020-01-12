@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2020 at 04:32 PM
+-- Generation Time: Jan 12, 2020 at 08:47 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -21,6 +21,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `hotel`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `room_book`
+--
+
+CREATE TABLE `room_book` (
+  `booking_id` int(11) NOT NULL,
+  `no_ktp` varchar(50) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `no_hp` varchar(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `room_id` int(11) NOT NULL,
+  `chckin_dt` date NOT NULL,
+  `chckout_dt` date NOT NULL,
+  `total_price` int(11) NOT NULL,
+  `paid_ind` int(1) NOT NULL,
+  `user_paid_ind` int(11) NOT NULL,
+  `chckout_ind` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -73,6 +94,12 @@ INSERT INTO `user` (`user_id`, `nama`, `username`, `password`, `email`, `user_in
 --
 
 --
+-- Indexes for table `room_book`
+--
+ALTER TABLE `room_book`
+  ADD PRIMARY KEY (`booking_id`);
+
+--
 -- Indexes for table `room_dim`
 --
 ALTER TABLE `room_dim`
@@ -87,6 +114,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `room_book`
+--
+ALTER TABLE `room_book`
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `room_dim`

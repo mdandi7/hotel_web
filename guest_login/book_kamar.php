@@ -67,6 +67,35 @@ Reservasi Hotel
   </div>
 </div>
 
+
+<!-- Modal (Payment Confirmation)  -->
+<div class="modal fade" id="PymntConfirmModal" tabindex="-1" role="dialog" aria-labelledby="PymntConfirmModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="PymntConfirmModalTitle">Payment Confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class='row justify-content-center paid-modal-head'>Silahkan selesaikan pembayaran pada booking anda dan lakukan konfirmasi.</div><br>
+        <div class='container border border-primary text-justify'>Pembayaran bisa dilakukan dengan transfer ke rekening berikut :
+          <li>MANDIRI 080989898989 a/n Dandi Ajah</li><li>BRI 080989898989 a/n Dandi Ajah</li>
+          <p class='font-weight-bold disp-total-price'>Total Pembayaran : Rp. 0</p>
+        </div><br>
+        <section class="row justify-content-end mr-1">
+          <button type="button" data-current-id="0" class="btn btn-primary btn-konfirm-paid justify-content-end">Confirm</button>
+        </section>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="accordion container py-4" id="accordionExample">
   <div class="card" >
     <div class="card-header" style="background-color: #333333;" id="headingOne">
@@ -123,9 +152,9 @@ Reservasi Hotel
           </div>
 
           <div class="form-group col">
-            <label for="jenisobat" class="font-weight-bold col-sm-6 col-form-label">Jumlah Penginap</label>
+            <label for="jenisobat" class="font-weight-bold col-sm-6 col-form-label">Total Bayar</label>
             <div class="col-sm-8">
-              <input type="number" class="form-control" id="jmlOrg" placeholder="Jumlah Penginap" required="required">
+              <input type="number" class="form-control" id="ttlByr" placeholder="Total Bayar" readonly="readonly">
             </div>
           </div>
 
@@ -140,7 +169,7 @@ Reservasi Hotel
           <div class="form-group col">
             <!-- <span><?php echo $error; ?></span> -->
             <div class="col-sm-8">
-              <input type="text" class="form-control room-name" readonly="readonly" placeholder="Nama Room"></input>
+              <input type="text" class="form-control room-name" data-id="0" readonly="readonly" placeholder="Nama Room"></input>
             </div>
           </div>
 
@@ -176,6 +205,7 @@ Reservasi Hotel
           </form>
           </div>
           <button class="btn btn-info mt-4 btn-order">Pesan Sekarang</button>
+          <button class="btn btn-info mt-4 ml-4 btn-modal" style="display: block" data-toggle="modal" data-target="#PymntConfirmModal">Konfirmasi Pembayaran</button>
         </div>
       </div>
       <!-- FORM BOOKING -->

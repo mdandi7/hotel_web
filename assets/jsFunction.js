@@ -38,9 +38,9 @@ $(document).ready(function(){
 	});
 
 	$(document).on("click",".btn-room",function(e){
-		$(".room-name").val($(this).attr("room-name"));
+		var roomName = $(this).attr("room-name");
 		var roomId = $(this).attr("data-room");
-
+		
 		$.ajax({
 			type: "POST",
 			url:'ajax-all-files.php',
@@ -49,7 +49,16 @@ $(document).ready(function(){
 				roomId : roomId,
 			},
 			complete: function (response){
-				$("#hrgKmr").val(response.responseText);
+				var resp = response.responseText.split('|');
+				if(resp[1] <= 0){
+					alert("Mohon Maaf, Untuk saat ini tidak ada kamar yang tersedia untuk tipe kamar ini.");
+					return false;
+				}else{
+					$("#hrgKmr").val(resp[0]);
+					$(".room-name").val(roomName);
+					$(".room-name").attr("data-id",roomId);
+				}
+				
 			},
 			error: function(){
 				alert("Connection to database failed!");
@@ -59,7 +68,17 @@ $(document).ready(function(){
 	});
 
 	$(document).on("click",".btn-order", function(e){
+		//var declare
 		var sucInd = 0;
+		var noKtp = $("#idKtp").val();
+		var nama = $("#nama").val();
+		var noHP = $("#noHP").val();
+		var email = $("#email").val();
+		var roomId = $(".room-name").attr("data-id");
+		var chckin_dt = $(".tgl-checkin").val();
+		var chckout_dt = $(".tgl-checkout").val();
+		var total = $("#ttlByr").val();
+
 		$(".form-tamu-detail").find("input").each(function(){
 			if($(this).prop('required') && $(this).val() == ''){
 				var placeHold = $(this).attr("placeholder")
@@ -81,11 +100,72 @@ $(document).ready(function(){
 	      	var LmInap1 = LmInap.split(" ");
 	      	if(!roomNm){
 	      		$(".alert-add").html("Pilih Kamar Terlebih Dahulu");
+	      		sucInd = 1;
 	      	}else if(!LmInap){
 				$(".alert-add").html("Pilih Tanggal Check in & Out");
+				sucInd = 1;
 			}else if(LmInap1[0] <= 0){
 				$(".alert-add").html("Pilih Tanggal Check in & Out dengan benar!");
+				sucInd = 1;
+			}else{
+				var harga = $("#hrgKmr").val();
+				var total = LmInap1[0] * harga
+				$("#ttlByr").val(total);
 			}
 		}
+
+		if(sucInd == 1){
+			return false;
+		}else{
+			$.ajax({
+				type: "POST",
+				url:'ajax-all-files.php',
+				data: {
+					txInd : "book-ind",
+					noKtp : noKtp,
+					nama : nama,
+					noHP : noHP,
+					email : email,
+					roomId : roomId,
+					chckin_dt : chckin_dt,
+					chckout_dt : chckout_dt,
+					total : total,
+				},
+				complete: function (response){
+					$("#PymntConfirmModal").modal("show");
+					$(".btn-modal").css("display","block");
+					$(".disp-total-price").html("Total Pembayaran : Rp. " + total);
+					$(".btn-konfirm-paid").attr("data-current-id",response.responseText);
+					$(".btn-order").attr("disabled",true);
+				},
+				error: function(){
+					alert("Connection to database failed!");
+				}
+			});
+			return false;
+		}
+	});
+
+	$(document).on("click",".btn-konfirm-paid",function(e){
+		var current_id = $(this).attr("data-current-id");
+
+		$.ajax({
+			type: "POST",
+			url:'ajax-all-files.php',
+			data: {
+				txInd : "updt-user-paid-ind",
+				current_id : current_id,
+			},
+			complete: function (response){
+				$("#PymntConfirmModal").modal("hide");
+				$(".btn-konfirm-paid").attr("disabled",true);
+				$(".paid-modal-head").html("Konfirmasi Pembayaran telah anda lakukan! Admin Kami akan mengkonfirmasi kembali!<br> Muat ulang halaman untuk Booking berikutnya.");
+			},
+			error: function(){
+				alert("Connection to database failed!");
+			}
+		});
+
+		return false;
 	});
 });
