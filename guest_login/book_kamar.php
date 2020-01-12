@@ -205,7 +205,7 @@ Reservasi Hotel
           </form>
           </div>
           <button class="btn btn-info mt-4 btn-order">Pesan Sekarang</button>
-          <button class="btn btn-info mt-4 ml-4 btn-modal" style="display: block" data-toggle="modal" data-target="#PymntConfirmModal">Konfirmasi Pembayaran</button>
+          <button class="btn btn-info mt-4 ml-4 btn-modal" style="display: none" data-toggle="modal" data-target="#PymntConfirmModal">Konfirmasi Pembayaran</button>
         </div>
       </div>
       <!-- FORM BOOKING -->
