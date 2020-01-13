@@ -1,6 +1,6 @@
 <?php
 include "string.php";
-// include "configdb.php";
+include "configdb.php";
 
 // $con = OpenCon();
 ?>
@@ -25,6 +25,64 @@ include "string.php";
 			height: 100%;
 		}
 	</style>
+
+  <script src="assets/jquery-3.4.1.min.js"></script>
+  
+  <!-- Javascript paged based-->
+  <script type="text/javascript">
+    
+    $(document).ready(function(e){
+      
+      $(".room-detail").each(function(e){
+        var roomID = $(this).attr("data-id");
+        const thisDiv = $(this);
+
+        $.ajax({
+          type : 'POST',
+          url : 'ajax-all-files.php',
+          data : {
+            txInd : "select-room",
+            roomID : roomID,
+          },
+          complete: function(response){
+            var rsp = response.responseText.split("|");
+            $(thisDiv).children("#rmAvail").val(rsp[0])
+            $(thisDiv).children("#rmTtl").val(rsp[1])
+            $(thisDiv).children("#rmPrice").val(rsp[2])
+          },
+          error: function(){
+            alert("Connection to database failed!");
+          }
+        });
+      })
+
+      $(document).on("click",".btn-update-room",function(e){
+          var rmTotal = $(this).siblings("#rmTtl").val();
+          var price = $(this).siblings("#rmPrice").val();
+          var roomID = $(this).parents(".room-detail").attr("data-id");
+
+          $.ajax({
+            type : 'POST',
+            url : 'ajax-all-files.php',
+            data : {
+              txInd : "update-room",
+              roomID : roomID,
+              rmTotal : rmTotal,
+              price : price,
+            },
+            complete: function(response){
+              alert("Update Complete...");
+            },
+            error: function(){
+              alert("Connection to database failed!");
+            }
+          });
+      });
+
+
+    });
+  </script>
+
 </head>
 <body class="text-monospace">
 
@@ -76,8 +134,12 @@ Reservasi Hotel
   <img class="mt-3 card-img-top" src="1.jpg" height="250" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title font-weight-bold">Singel Room</h5>
-    <p class="card-text">Disini nanti ada jumlah available kamar</p>
-    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+    <div class="col-sm-8 room-detail" data-id='1'>
+        Room Available : <input type="text" class="form-control" id="rmAvail" placeholder="Room Avail" readonly="readonly">
+        Total Room  : <input type="text" class="form-control" id="rmTtl" placeholder="Total Room">
+        Room Price : <input type="text" class="form-control" id="rmPrice" placeholder="Total Room">
+        <button class="btn btn-info mt-4 btn-update-room">Update</button>
+    </div>
   </div>
 </div>
 
@@ -85,7 +147,12 @@ Reservasi Hotel
   <img class="mt-3 card-img-top" src="2.jpg" height="250" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title font-weight-bold">Family Room</h5>
-    <p class="card-text">Disini nanti ada jumlah available kamar</p>
+    <div class="col-sm-8 room-detail" data-id='2'>
+        Room Available : <input type="text" class="form-control" id="rmAvail" placeholder="Room Avail" readonly="readonly">
+        Total Room  : <input type="text" class="form-control" id="rmTtl" placeholder="Total Room">
+        Room Price : <input type="text" class="form-control" id="rmPrice" placeholder="Total Room">
+        <button class="btn btn-info mt-4 btn-update-room">Update</button>
+    </div>
     <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
   </div>
 </div>
@@ -94,8 +161,12 @@ Reservasi Hotel
   <img class="mt-3 card-img-top" src="3jpg.jpg" height="250" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title font-weight-bold">Luxury Room</h5>
-    <p class="card-text">Disini nanti ada jumlah available kamar</p>
-    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+    <div class="col-sm-8 room-detail" data-id='3'>
+        Room Available : <input type="text" class="form-control" id="rmAvail" placeholder="Room Avail" readonly="readonly">
+        Total Room  : <input type="text" class="form-control" id="rmTtl" placeholder="Total Room">
+        Room Price : <input type="text" class="form-control" id="rmPrice" placeholder="Total Room">
+        <button class="btn btn-info mt-4 btn-update-room">Update</button>
+    </div>
   </div>
 </div>
 

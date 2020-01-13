@@ -1,6 +1,6 @@
 <?php
 include "string.php";
-// include "configdb.php";
+include "configdb.php";
 
 // $con = OpenCon();
 ?>
@@ -8,23 +8,26 @@ include "string.php";
 <!DOCTYPE html>
 <html>
 <head>
-	<title><?php echo $nama_aplikasi ?></title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css">
+  <title><?php echo $nama_aplikasi ?></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css">
 
-	<style type="text/css">
-		.navbar {
-			padding: .8rem;
-		}
-		.navbar-nav li {
-			padding-right: 20px;
-		}
-		.carousel-inner img {
-			width: 100%;
-			height: 100%;
-		}
-	</style>
+  <style type="text/css">
+    .navbar {
+      padding: .8rem;
+    }
+    .navbar-nav li {
+      padding-right: 20px;
+    }
+    .carousel-inner img {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+
+  <script src="assets/jquery-3.4.1.min.js"></script>
+  <script src="assets/jsFunctionBooking.js"></script>
 </head>
 <body class="text-monospace">
 
@@ -41,8 +44,8 @@ Reservasi Hotel
       <li class="nav-item active">
         <a class="nav-link" href="index.php">Beranda<span class="sr-only">(current)</span></a>
       </li>
-     <!--  <li class="nav-item">
-        <a class="nav-link" href="#">Data Kamar</a>
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="booking.php">Registrasi</a>
       </li> -->
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">List Data</a>
@@ -66,35 +69,64 @@ Reservasi Hotel
 <!-- jumbotron -->
 <div class="jumbotron jumbotron-fluid rounded-bottom mb-0 shadow " style="background-color: #333333;  background-repeat: no-repeat; background-size: 150%">
   <div class="container text-center">
-  	<img src="4.jpeg" width="20%" class="rounded-circle img-thumbnail">
+    <img src="4.jpeg" width="20%" class="rounded-circle img-thumbnail">
     <h1 class="display-4 text-light">Reservasi Hotel</h1>
     <p  class="lead text-light ">Hotel Bintang 7 Masuk Angin</p>
   </div>
 </div>
 
-
 <div class="container mt-5 ">
-  <h1>Data Tamu</h1>
+  <h1>Data Booking</h1>
 </div>
-<div class="container-fluid row justify-content-center">
-  <div class="col-sm-6">
-  <form class="mt-3 form-inline" method="post">
-  <h5>Cari Berdasarkan No. KTP :</h5>
   <div class="form-group col">
     <!-- <label for="namaobat" class="font-weight-bold  col-form-label">No Registrasi</label> -->
-    <div class="col-sm-12">
-      <input class="form-control mr-sm-2" type="text" placeholder="No. KTP" aria-label="Search" name="like_namaobat">
-        <button class="btn btn-outline-info" type="submit" name="cariobat">Cari</button>
+    <div class="col-sm-12 form-inline justify-content-end">
+      <h5 class="mr-1">Cari : </h5>
+        <input class="form-control mr-sm-2 ktp-search-guest" type="text" placeholder="No. KTP">
+        <button class="btn btn-outline-info find-guest-ktp" type="submit" >Cari</button>
+        <button class="btn btn-outline-info ml-2 clear-guest" type="submit">Clear</button>
         <!-- <button class="btn btn-outline-info" type="submit" name="cariobat">Check In</button> -->
     </div>
+  
+  <div class="container py-4 guest-table-search" style="display: none;"> 
+    <h5 class="font-weight-bold">Hasil Pencarian</h5>
+    <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">No. KTP</th>
+        <th scope="col">Nama</th>
+        <th scope="col">No. HP</th>
+        <th scope="col">Email</th>
+        <th scope="col">Type Kamar</th>
+        <th scope="col">Check In</th>
+        <th scope="col">Check Out</th>
+        <th scope="col">Payment</th>
+      </tr>
+    </thead>
+    <tbody class="search-guest-table">
+    </tbody>
+  </table>
   </div>
-  </form>
+
+  <div class="container py-4 guest-table" style="display: block;"> 
+    <h5 class="font-weight-bold">Daftar Tamu</h5>
+    <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">No. KTP</th>
+        <th scope="col">Nama</th>
+        <th scope="col">No. HP</th>
+        <th scope="col">Email</th>
+        <th scope="col">Type Kamar</th>
+        <th scope="col">Check In</th>
+        <th scope="col">Check Out</th>
+        <th scope="col">Payment</th>
+      </tr>
+    </thead>
+    <tbody class="guest-table-show">
+    </tbody>
+  </table>
   </div>
-</div>
-
-
-<div>
-  <h3>disini ada tabel untuk data tamu</h3>
 </div>
 
 <!-- Footer -->
@@ -188,6 +220,12 @@ Reservasi Hotel
 </footer>
 
 </body>
+
+<script>
+function goBack() {
+  window.history.back()
+}
+</script>
 
 <script src="assets/jquery-3.4.1.min.js" type="text/javascript"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>

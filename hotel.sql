@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2020 at 08:47 AM
+-- Generation Time: Jan 13, 2020 at 07:18 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -21,6 +21,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `hotel`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pegawai`
+--
+
+CREATE TABLE `pegawai` (
+  `NIP` varchar(50) NOT NULL,
+  `nama_pegawai` varchar(50) NOT NULL,
+  `jenis_kelamin` varchar(50) NOT NULL,
+  `tgl_lahir` date NOT NULL,
+  `alamat` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pegawai`
+--
+
+INSERT INTO `pegawai` (`NIP`, `nama_pegawai`, `jenis_kelamin`, `tgl_lahir`, `alamat`) VALUES
+('15415ASD', 'Dandi', 'Perempuan', '2020-01-10', 'Kendari'),
+('AJJ415ASD', 'Magfiral', 'Laki-laki', '1996-02-13', 'Kendari');
 
 -- --------------------------------------------------------
 
@@ -43,6 +65,15 @@ CREATE TABLE `room_book` (
   `chckout_ind` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `room_book`
+--
+
+INSERT INTO `room_book` (`booking_id`, `no_ktp`, `nama`, `no_hp`, `email`, `room_id`, `chckin_dt`, `chckout_dt`, `total_price`, `paid_ind`, `user_paid_ind`, `chckout_ind`) VALUES
+(1, 'test', 'test', 'tset', 'test', 1, '2020-01-13', '2020-01-14', 200000, 1, 1, 0),
+(2, 'test1', 'test1', 'test1', 'test1', 3, '2020-01-13', '2020-01-15', 1600000, 1, 1, 0),
+(3, 'test3', 'test3', 'test3', 'test3', 3, '2020-01-13', '2020-01-17', 3200000, 0, 1, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -62,9 +93,9 @@ CREATE TABLE `room_dim` (
 --
 
 INSERT INTO `room_dim` (`room_id`, `room_name`, `room_price`, `room_total`, `room_avail`) VALUES
-(1, 'Single Room', 200000, 20, 20),
+(1, 'Single Room', 200000, 20, 19),
 (2, 'Family Room', 300000, 25, 25),
-(3, 'Luxury Room', 800000, 25, 25);
+(3, 'Luxury Room', 800000, 25, 23);
 
 -- --------------------------------------------------------
 
@@ -94,6 +125,12 @@ INSERT INTO `user` (`user_id`, `nama`, `username`, `password`, `email`, `user_in
 --
 
 --
+-- Indexes for table `pegawai`
+--
+ALTER TABLE `pegawai`
+  ADD PRIMARY KEY (`NIP`);
+
+--
 -- Indexes for table `room_book`
 --
 ALTER TABLE `room_book`
@@ -119,7 +156,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `room_book`
 --
 ALTER TABLE `room_book`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `room_dim`

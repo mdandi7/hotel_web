@@ -1,6 +1,6 @@
 <?php
 include "string.php";
-// include "configdb.php";
+include "configdb.php";
 
 // $con = OpenCon();
 ?>
@@ -25,6 +25,9 @@ include "string.php";
 			height: 100%;
 		}
 	</style>
+
+  <script src="assets/jquery-3.4.1.min.js"></script>
+  <script src="assets/jsFunctionBooking.js"></script>
 </head>
 <body class="text-monospace">
 
@@ -75,20 +78,73 @@ Reservasi Hotel
 <div class="container mt-5 ">
   <h1>Data Booking</h1>
 </div>
-<div class="container-fluid row justify-content-center">
-  <div class="col-sm-6">
-  <form class="mt-3 form-inline" method="post">
-  <h5>Cari Berdasarkan No. KTP :</h5>
   <div class="form-group col">
     <!-- <label for="namaobat" class="font-weight-bold  col-form-label">No Registrasi</label> -->
-    <div class="col-sm-12">
-      <input class="form-control mr-sm-2" type="text" placeholder="No. KTP" aria-label="Search" name="like_namaobat">
-        <button class="btn btn-outline-info" type="submit" name="cariobat">Cari</button>
+    <div class="col-sm-12 form-inline justify-content-end">
+      <h5 class="mr-1">Cari : </h5>
+        <input class="form-control mr-sm-2 ktp-search" type="text" placeholder="No. KTP">
+        <button class="btn btn-outline-info find-data-ktp" type="submit" >Cari</button>
+        <button class="btn btn-outline-info ml-2 clear-search" type="submit">Clear</button>
         <!-- <button class="btn btn-outline-info" type="submit" name="cariobat">Check In</button> -->
     </div>
+  
+  <div class="container py-4 search-table" style="display: none;"> 
+    <h5 class="font-weight-bold">Hasil Pencarian</h5>
+    <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">No. KTP</th>
+        <th scope="col">Nama</th>
+        <th scope="col">Type Kamar</th>
+        <th scope="col">Total Harga</th>
+        <th scope="col">Check In</th>
+        <th scope="col">Check Out</th>
+        <th scope="col">Konfirmasi</th>
+      </tr>
+    </thead>
+    <tbody class="search-table-show">
+    </tbody>
+  </table>
   </div>
-  </form>
-  </div>
+
+
+  <div class="container py-4 all-tables" style="display: block"> 
+
+  <h5 class="font-weight-bold">Konfirmasi Pending </h5>
+  <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">No. KTP</th>
+      <th scope="col">Nama</th>
+      <th scope="col">Type Kamar</th>
+      <th scope="col">Total Harga</th>
+      <th scope="col">Check In</th>
+      <th scope="col">Check Out</th>
+      <th scope="col">Konfirmasi</th>
+    </tr>
+  </thead>
+  <tbody class="pending-table">
+  </tbody>
+</table>
+
+
+  <h5 class="font-weight-bold">Konfirmasi Success </h5>
+  <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">No. KTP</th>
+      <th scope="col">Nama</th>
+      <th scope="col">Type Kamar</th>
+      <th scope="col">Total Harga</th>
+      <th scope="col">Check In</th>
+      <th scope="col">Check Out</th>
+    </tr>
+  </thead>
+  <tbody class="succed-table">
+  </tbody>
+</table>
+
+</div>
 </div>
 
 <!-- Footer -->

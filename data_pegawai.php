@@ -1,6 +1,6 @@
 <?php
 include "string.php";
-// include "configdb.php";
+include "configdb.php";
 
 // $con = OpenCon();
 ?>
@@ -25,6 +25,10 @@ include "string.php";
 			height: 100%;
 		}
 	</style>
+
+  <script src="assets/jquery-3.4.1.min.js"></script>
+  <script src="assets/jsFunctionBooking.js"></script>
+
 </head>
 <body class="text-monospace">
 
@@ -76,45 +80,39 @@ Reservasi Hotel
 <div class="container-fluid mt-5">
   <h1> Data Pegawai</h1>
 </div>
+<div class="alert-add" align="center" style="color: red"></div>
 <div class="container-fluid row justify-content-center">
-  <div class="col-sm-6">
-  <form class="mt-3" method="post">
-  <!-- <h5>Data Tamu :</h5> -->
-
+  <div class="col-sm-6 mt-3">
   <div class="form-group col">
     <label for="nip" class="font-weight-bold col-sm-6 col-form-label">NIP</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="nip" name="nip" placeholder="NIP" required>
+      <input type="text" class="form-control" id="nip" placeholder="NIP" required>
     </div>
   </div>
 
   <div class="form-group col">
     <label for="namapegawai" class="font-weight-bold col-sm-6 col-form-label">Nama Pegawai</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="namapegawai" name="namapegawai" placeholder="Nama Pegawai" required>
+      <input type="text" class="form-control" id="namapegawai" placeholder="Nama Pegawai" required>
     </div>
   </div>
 
-  <div class="form-group col">
+  <!--<div class="form-group col">
     <label for="password" class="font-weight-bold col-sm-6 col-form-label">Password</label>
     <div class="col-sm-8">
       <input type="Password" class="form-control" id="password" name="password" placeholder="Password" required>
     </div>
+  </div>-->
   </div>
 
-  </form>
-  </div>
-
-<div class="col-sm-6">
-  <form class="mt-3" method="post">
-
+<div class="col-sm-6 mt-3">
  <div class="form-group col">
     <label for="jeniskelamin" class="font-weight-bold col-sm-6 col-form-label">Jenis Kelamin</label>
     <div class="col-sm-8">
-      <select class="custom-select" id="jeniskelamin" name="jeniskelamin">
-        <option selected>Pilih Salah Satu</option>
-        <option value="1">Laki-Laki</option>
-        <option value="2">Perempuan</option>
+      <select class="custom-select" id="jeniskelamin">
+        <option value="0" selected>Pilih Salah Satu</option>
+        <option value="Laki-laki">Laki-Laki</option>
+        <option value="Perempuan">Perempuan</option>
     </select>
     </div>
   </div>
@@ -122,29 +120,65 @@ Reservasi Hotel
   <div class="form-group col">
     <label for="tgllahir" class="font-weight-bold col-sm-6 col-form-label">Tanggal Lahir</label>
     <div class="col-sm-8">
-      <input type="date" class="form-control" id="tgllahir" name="tgllahir" placeholder="Tanggal Lahir" required>
+      <input type="date" class="form-control" id="tgllahir">
     </div>
   </div>
   
   <div class="form-group col">
     <label for="alamat" class="font-weight-bold col-sm-6 col-form-label">Alamat</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat" required>
+      <input type="text" class="form-control" id="alamat" placeholder="Alamat" required>
     </div>
   </div>
-
-  </form>
+  <button class="btn btn-info mt-4 btn-regist-pgw">Daftar</button>
   </div>
   <div class="pt-4">
    <!--  <button class="btn btn-info mr-sm-2 ">Edit</button>
     <button class="btn btn-danger mr-sm-2">Check Out</button> -->
   </div>
 </div>
+<br><hr class="style2" style="background-color: #fff; border-top: 2px dashed #8c8b8b;"><br>
+  <div class="col-sm-12 mt-3 form-inline justify-content-center">
+      <h5 class="mr-1">Cari : </h5>
+      <input class="form-control mr-sm-2 pegawai-search-nip" type="text" placeholder="NIP">
+      <button class="btn btn-outline-info find-pegawai" type="submit" >Cari</button>
+      <button class="btn btn-outline-info ml-2 clear-pegawai" type="submit">Clear</button>
+      <!-- <button class="btn btn-outline-info" type="submit" name="cariobat">Check In</button> -->
+  </div>
 
+  <div class="container py-4 pegawai-table" style="display: block;"> 
+    <h5 class="font-weight-bold">Daftar Pegawai : </h5>
+    <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">NIP</th>
+        <th scope="col">Nama Pegawai</th>
+        <th scope="col">Jenis Kelamin</th>
+        <th scope="col">Tanggal Lahir</th>
+        <th scope="col">Alamat</th>
+      </tr>
+    </thead>
+    <tbody class="pegawai-table-show">
+    </tbody>
+  </table>
+  </div>
 
-<div>
-  <h3>bas, disini nanti ada tombol search.</h3>
-  <h3>disini ada tabel untuk data pegawai</h3>
+    <div class="container py-4 pegawai-table-search" style="display: none;"> 
+    <h5 class="font-weight-bold">Hasil Pencarian : </h5>
+    <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">NIP</th>
+        <th scope="col">Nama Pegawai</th>
+        <th scope="col">Jenis Kelamin</th>
+        <th scope="col">Tanggal Lahir</th>
+        <th scope="col">Alamat</th>
+      </tr>
+    </thead>
+    <tbody class="pegawai-table-search-show">
+    </tbody>
+  </table>
+  </div>
 </div>
 
 <!-- Footer -->
