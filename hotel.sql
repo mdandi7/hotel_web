@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2020 at 07:18 PM
+-- Generation Time: Jan 14, 2020 at 02:51 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -41,8 +41,7 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`NIP`, `nama_pegawai`, `jenis_kelamin`, `tgl_lahir`, `alamat`) VALUES
-('15415ASD', 'Dandi', 'Perempuan', '2020-01-10', 'Kendari'),
-('AJJ415ASD', 'Magfiral', 'Laki-laki', '1996-02-13', 'Kendari');
+('15415ASD', 'Dandi', 'Perempuan', '2020-01-10', 'Kendari');
 
 -- --------------------------------------------------------
 
@@ -62,17 +61,35 @@ CREATE TABLE `room_book` (
   `total_price` int(11) NOT NULL,
   `paid_ind` int(1) NOT NULL,
   `user_paid_ind` int(11) NOT NULL,
-  `chckout_ind` int(1) NOT NULL
+  `chckout_ind` int(1) NOT NULL,
+  `cancel_ind` int(1) NOT NULL,
+  `timeout_ind` int(1) NOT NULL,
+  `booking_time` time NOT NULL,
+  `booking_dt` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `room_book`
 --
 
-INSERT INTO `room_book` (`booking_id`, `no_ktp`, `nama`, `no_hp`, `email`, `room_id`, `chckin_dt`, `chckout_dt`, `total_price`, `paid_ind`, `user_paid_ind`, `chckout_ind`) VALUES
-(1, 'test', 'test', 'tset', 'test', 1, '2020-01-13', '2020-01-14', 200000, 1, 1, 0),
-(2, 'test1', 'test1', 'test1', 'test1', 3, '2020-01-13', '2020-01-15', 1600000, 1, 1, 0),
-(3, 'test3', 'test3', 'test3', 'test3', 3, '2020-01-13', '2020-01-17', 3200000, 0, 1, 0);
+INSERT INTO `room_book` (`booking_id`, `no_ktp`, `nama`, `no_hp`, `email`, `room_id`, `chckin_dt`, `chckout_dt`, `total_price`, `paid_ind`, `user_paid_ind`, `chckout_ind`, `cancel_ind`, `timeout_ind`, `booking_time`, `booking_dt`) VALUES
+(1, 'test', 'test', 'tset', 'test', 1, '2020-01-13', '2020-01-14', 200000, 1, 1, 1, 0, 0, '00:00:00', '0000-00-00'),
+(2, 'test1', 'test1', 'test1', 'test1', 3, '2020-01-13', '2020-01-15', 1600000, 1, 1, 0, 0, 0, '00:00:00', '0000-00-00'),
+(3, 'test3', 'test3', 'test3', 'test3', 3, '2020-01-13', '2020-01-17', 3200000, 0, 1, 0, 1, 0, '00:00:00', '0000-00-00'),
+(4, 'test4', 'test4', 'test4', 'test4', 2, '2020-01-14', '2020-01-15', 300000, 0, 1, 0, 0, 0, '15:18:07', '0000-00-00'),
+(5, 'test5', 'test5', 'test5', 'test5', 2, '2020-01-14', '2020-01-15', 300000, 0, 0, 0, 0, 0, '16:25:03', '2020-01-14'),
+(6, 'test6', 'test6', 'test6', 'test6', 2, '2020-01-14', '2020-01-15', 300000, 0, 0, 0, 0, 0, '16:27:43', '2020-01-14'),
+(7, 'test7', 'test7', 'test7', 'test7', 2, '2020-01-14', '2020-01-15', 300000, 0, 0, 0, 0, 0, '16:29:30', '2020-01-14'),
+(8, 'test8', 'test8', 'test8', 'test8', 3, '2020-01-08', '2020-01-09', 800000, 0, 0, 0, 0, 0, '16:30:51', '2020-01-14'),
+(9, 'test9', 'test9', 'test9', 'test9', 3, '2020-01-14', '2020-01-18', 3200000, 0, 0, 0, 0, 0, '16:31:35', '2020-01-14'),
+(10, 'test10', 'test10', 'test10', 'test10', 2, '2020-01-14', '2020-01-23', 2700000, 0, 1, 0, 0, 0, '16:33:13', '2020-01-14'),
+(11, 'test11', 'test11', 'test11', 'test11', 2, '2020-01-16', '2020-01-17', 300000, 0, 0, 0, 0, 0, '16:37:47', '2020-01-14'),
+(12, 'test12', 'test12', 'test12', 'test12', 2, '2020-01-16', '2020-01-17', 300000, 0, 0, 0, 0, 0, '16:38:58', '2020-01-14'),
+(13, 'test13', 'test13', 'test13', 'test13', 2, '2020-01-14', '2020-01-16', 600000, 0, 0, 0, 0, 0, '16:39:28', '2020-01-14'),
+(14, 'test14', 'test14', 'test14', 'test14', 2, '2020-01-14', '2020-01-15', 300000, 0, 0, 0, 0, 1, '16:40:57', '2020-01-14'),
+(15, 'test15', 'test15', 'test15', 'test15', 2, '2020-01-14', '2020-01-16', 600000, 0, 1, 0, 0, 0, '16:48:57', '2020-01-14'),
+(16, 'test16', 'test16', 'test16', 'test16', 2, '2020-01-14', '2020-01-16', 600000, 0, 1, 0, 0, 0, '17:00:44', '2020-01-14'),
+(17, 'test17', 'test17', 'test17', 'test17', 2, '2020-01-14', '2020-01-15', 300000, 0, 1, 0, 0, 0, '19:37:34', '2020-01-14');
 
 -- --------------------------------------------------------
 
@@ -93,9 +110,9 @@ CREATE TABLE `room_dim` (
 --
 
 INSERT INTO `room_dim` (`room_id`, `room_name`, `room_price`, `room_total`, `room_avail`) VALUES
-(1, 'Single Room', 200000, 20, 19),
-(2, 'Family Room', 300000, 25, 25),
-(3, 'Luxury Room', 800000, 25, 23);
+(1, 'Single Room', 200000, 20, 20),
+(2, 'Family Room', 300000, 25, 13),
+(3, 'Luxury Room', 800000, 25, 21);
 
 -- --------------------------------------------------------
 
@@ -156,7 +173,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `room_book`
 --
 ALTER TABLE `room_book`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `room_dim`
