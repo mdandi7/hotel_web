@@ -156,6 +156,7 @@ Reservasi Hotel
         <th scope="col">Jenis Kelamin</th>
         <th scope="col">Tanggal Lahir</th>
         <th scope="col">Alamat</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody class="pegawai-table-show">
@@ -173,6 +174,7 @@ Reservasi Hotel
         <th scope="col">Jenis Kelamin</th>
         <th scope="col">Tanggal Lahir</th>
         <th scope="col">Alamat</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody class="pegawai-table-search-show">

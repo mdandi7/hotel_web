@@ -8,6 +8,7 @@ Version : 1.0.0
 $(document).ready(function(){
 
 	//Autofill date field in page
+	//stand-alone function
 
 	function fillDate(){
 	  var today = new Date();
@@ -25,10 +26,37 @@ $(document).ready(function(){
 	  var fullDate = today.getFullYear()+month+date;
 	  $("input[type=date]").val(fullDate);
 	  //document.getElementById("tgl1").value = fullDate;
+
+	  var time=today.getHours() +':'+ today.getMinutes() +':'+ today.getSeconds();
+	  document.getElementById('book_time').value = time;
 	};
 
 	fillDate();
 
+	function countDownBook(date_v,time_v){
+      var countDownDate = new Date(date_v+" "+time_v).getTime();
+
+
+      var x = setInterval(function() {
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          
+        document.getElementById("book-count-down").innerHTML =
+        + minutes + "m " + seconds + "s ";
+          
+        if (distance <= 0) {
+          clearInterval(x);
+          document.getElementById("book-count-down").innerHTML = "EXPIRED";
+          $(function(){
+            $(".btn-konfirm-paid").attr("disabled", 'disabled');
+          });
+        }
+      }, 1000);
+    };
+
+    //pages-function
 	$(document).on("input",".tgl-chck", function(e){
 		var ckIn = new Date($(".tgl-checkin").val());
 		var ckOt = new Date($(".tgl-checkout").val());
@@ -78,6 +106,8 @@ $(document).ready(function(){
 		var chckin_dt = $(".tgl-checkin").val();
 		var chckout_dt = $(".tgl-checkout").val();
 		var total = $("#ttlByr").val();
+		var bkTime = $("#book_time").val();
+		var tglToday = $(".tgl-today").val();
 
 		$(".form-tamu-detail").find("input").each(function(){
 			if($(this).prop('required') && $(this).val() == ''){
@@ -130,12 +160,18 @@ $(document).ready(function(){
 					chckin_dt : chckin_dt,
 					chckout_dt : chckout_dt,
 					total : total,
+					bkTime : bkTime,
+					tglToday : tglToday,
 				},
 				complete: function (response){
+					var rsp = response.responseText.split('|');
 					$("#PymntConfirmModal").modal("show");
 					$(".btn-modal").css("display","block");
 					$(".disp-total-price").html("Total Pembayaran : Rp. " + total);
-					$(".btn-konfirm-paid").attr("data-current-id",response.responseText);
+					$(".disp-booking-cd").html("No Booking Anda : " + rsp[0] + " (Catat)");
+					$(".btn-konfirm-paid").attr("data-current-id",rsp[0]);
+					$(".btn-konfirm-paid").attr("data-current-room",rsp[3]);
+					countDownBook(rsp[1],rsp[2]);
 					$(".btn-order").attr("disabled",true);
 				},
 				error: function(){
@@ -148,6 +184,7 @@ $(document).ready(function(){
 
 	$(document).on("click",".btn-konfirm-paid",function(e){
 		var current_id = $(this).attr("data-current-id");
+		var current_room = $(this).attr("data-current-room");
 
 		$.ajax({
 			type: "POST",
@@ -155,11 +192,13 @@ $(document).ready(function(){
 			data: {
 				txInd : "updt-user-paid-ind",
 				current_id : current_id,
+				current_room: current_room,
 			},
 			complete: function (response){
 				$("#PymntConfirmModal").modal("hide");
 				$(".btn-konfirm-paid").attr("disabled",true);
 				$(".paid-modal-head").html("Konfirmasi Pembayaran telah anda lakukan! Admin Kami akan mengkonfirmasi kembali!<br> Muat ulang halaman untuk Booking berikutnya.");
+				$(".div-book-count-down").css("display","none");
 			},
 			error: function(){
 				alert("Connection to database failed!");

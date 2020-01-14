@@ -29,6 +29,12 @@ include "string.php";
   <script src="../assets/jquery-3.4.1.min.js"></script>
   <script src="../assets/jsFunction.js"></script>
 
+  <script type="text/javascript">
+    $(document).on("click",".btn-find-book",function(e){
+    var test = $(".booking-code").val();
+    alert("test");
+  });
+  </script>
 </head>
 <body class="text-monospace">
 
@@ -49,7 +55,10 @@ Reservasi Hotel
         <a class="nav-link" href="booking.php">Registrasi</a>
       </li> -->
       <li class="nav-item active">
-        <a class="nav-link" href="data_kamar.php">Booking Room</a>
+        <a class="nav-link" href="book_kamar.php">Booking Room</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="cancel_book.php">Cancel Booking</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link" href="../ind-login.php" id="navbarDropdown" aria-expanded="false">Login</a>
@@ -80,12 +89,16 @@ Reservasi Hotel
       </div>
       <div class="modal-body">
         <div class='row justify-content-center paid-modal-head'>Silahkan selesaikan pembayaran pada booking anda dan lakukan konfirmasi.</div><br>
+        <p class='font-weight-bold disp-booking-cd'>No Booking Anda : </p>
+        <div class='row justify-content-center div-book-count-down'>Waktu pembayaran akan habis dalam &nbsp
+          <p id='book-count-down' class='font-weight-bold' style=' color: red '></p>
+        </div><br>
         <div class='container border border-primary text-justify'>Pembayaran bisa dilakukan dengan transfer ke rekening berikut :
           <li>MANDIRI 080989898989 a/n Dandi Ajah</li><li>BRI 080989898989 a/n Dandi Ajah</li>
           <p class='font-weight-bold disp-total-price'>Total Pembayaran : Rp. 0</p>
         </div><br>
         <section class="row justify-content-end mr-1">
-          <button type="button" data-current-id="0" class="btn btn-primary btn-konfirm-paid justify-content-end">Confirm</button>
+          <button type="button" data-current-id="0" data-current-room="0" class="btn btn-primary btn-konfirm-paid justify-content-end">Confirm</button>
         </section>
       </div>
       <div class="modal-footer">
@@ -157,6 +170,7 @@ Reservasi Hotel
               <input type="number" class="form-control" id="ttlByr" placeholder="Total Bayar" readonly="readonly">
             </div>
           </div>
+          <input type="text" class="invisible" id="book_time" name="book_time" placeholder="Lapangan"  required="required" readonly="readonly">
 
           </form>
           </div>
@@ -185,6 +199,7 @@ Reservasi Hotel
             <label for="namaobat" class="font-weight-bold col-sm-6 col-form-label">Tanggal Check Out</label>
             <div class="col-sm-8">
               <input type="date" class="form-control tgl-chck tgl-checkout">
+              <input type="date" class="form-control tgl-today"  style="display: none">
             </div>
           </div>
 

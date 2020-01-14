@@ -206,7 +206,7 @@ $(document).ready(function(){
 	});
 
 	$(document).on("click",".clear-pegawai",function(e){
-
+		$(".pegawai-search-nip").val("");
 		$(".pegawai-table-search").css("display","none");
 		$(".pegawai-table").css("display","block");
 
@@ -246,6 +246,25 @@ $(document).ready(function(){
           },
           complete: function(response){
           	$(".pegawai-table-search-show").html(response.responseText);
+          },
+          error: function(){
+            alert("Connection to database failed!");
+          }
+		});
+	});
+
+	$(document).on("click",".btn-delete-pgw",function(e){
+		var nip = $(this).attr("data-id");
+
+		$.ajax({
+		  type : 'POST',
+          url : 'ajax-all-files.php',
+          data : {
+            txInd : "pegawai-delete",
+            nip : nip,
+          },
+          complete: function(response){
+          	$(".clear-pegawai").trigger("click");
           },
           error: function(){
             alert("Connection to database failed!");

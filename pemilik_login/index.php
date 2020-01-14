@@ -1,6 +1,6 @@
 <?php
 include "string.php";
-// include "configdb.php";
+include "configdb.php";
 
 // $con = OpenCon();
 ?>
@@ -8,18 +8,18 @@ include "string.php";
 <!DOCTYPE html>
 <html>
 <head>
-  <title><?php echo $nama_aplikasi ?></title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="../assets/bootstrap/css/bootstrap.min.css">
+	<title><?php echo $nama_aplikasi ?></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../assets/bootstrap/css/bootstrap.min.css">
 
-  <style type="text/css">
-    .navbar {
-      padding: .8rem;
-    }
-    .navbar-nav li {
-      padding-right: 20px;
-    }
+	<style type="text/css">
+		.navbar {
+			padding: .8rem;
+		}
+		.navbar-nav li {
+			padding-right: 20px;
+		}
     @media (min-width: 768px) {
 .carousel-multi-item-2 .col-md-3 {
 float: left;
@@ -28,7 +28,7 @@ max-width: 100%; } }
 
 .carousel-multi-item-2 .card img {
 border-radius: 2px; }
-  </style>
+	</style>
 </head>
 <body class="text-monospace">
 
@@ -43,16 +43,23 @@ Reservasi Hotel
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto mr-sm-2">
       <li class="nav-item active">
-        <a class="nav-link" href="guest_login.php">Home<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="index.php">Beranda<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="book_kamar.php">Booking Room</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="cancel_book.php">Cancel Booking</a>
+     <!--  <li class="nav-item">
+        <a class="nav-link" href="#">Data Kamar</a>
+      </li> -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Laporan</a>
+        <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="laporan_harian.php">Laporan Harian</a>
+          <a class="dropdown-item" href="laporan_bulanan.php">Laporan Bulanan</a>
+        </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link" href="../ind-login.php" id="navbarDropdown" aria-expanded="false">Login</a>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pemilik</a>
+        <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="logout.php">Logout</a>
+        </div>
       </li>
     </ul>
   </div>
@@ -181,6 +188,44 @@ Reservasi Hotel
   <!--/.Controls-->
 </div>
 </div>
+
+
+<div class="my-5">
+  <div class="container-fluid mt-5">
+    <div class="container-fluid row justify-content-center">
+      <h2 class="text-center font-weight-bold">Book a room</h2>
+    <!-- <a class="btn btn-info text-justify" href="pesan_kamar.php">Pesan Kamar Sekarang</a> -->
+    </div>
+  </div>
+  <div class="card-deck my-3 mx-2 text-justify">
+    <div class="card">
+      <a href="#"><img class="card-img-top" height="300" src="1.jpg" href="pesan_kamar.php" alt="Card image cap"></a>
+      <div class="card-body">
+        <h5 class="card-title font-weight-bold">Single Room</h5>
+        <p class="card-text">Fasilitas : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+    </div>
+    <div class="card">
+      <a href="#"><img class="card-img-top" height="300" src="2.jpg" alt="Card image cap"></a>
+      <div class="card-body">
+        <h5 class="card-title font-weight-bold">Family Room</h5>
+        <p class="card-text">Fasilitas : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+    </div>
+    <div class="card">
+      <a href="#"><img class="card-img-top" src="3jpg.jpg" height="300" alt="Card image cap"></a>
+      <div class="card-body">
+        <h5 class="card-title font-weight-bold">Deluxe Room</h5>
+        <p class="card-text">Fasilitas : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 
 <!-- footer -->

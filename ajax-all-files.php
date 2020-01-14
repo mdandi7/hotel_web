@@ -67,7 +67,7 @@
 
         $query = mysqli_query($connection, "UPDATE room_dim SET room_price = '$price', room_total = '$rmTotal' WHERE room_id = '$roomID'");
     }else if($txInd == "book-page"){
-        $query = mysqli_query($connection,"SELECT * FROM room_book rb LEFT JOIN room_dim rd ON rb.room_id = rd.room_id WHERE user_paid_ind = 1 AND paid_ind = 0 and chckout_ind = 0");
+        $query = mysqli_query($connection,"SELECT * FROM room_book rb LEFT JOIN room_dim rd ON rb.room_id = rd.room_id WHERE user_paid_ind = 1 AND paid_ind = 0 and chckout_ind = 0 and cancel_ind = 0");
         $rows = mysqli_num_rows($query);
 
         for($i=0;$i<$rows;$i++){
@@ -82,7 +82,7 @@
         }
 
         $rsp .= "|";
-        $query = mysqli_query($connection,"SELECT * FROM room_book rb LEFT JOIN room_dim rd ON rb.room_id = rd.room_id WHERE user_paid_ind = 1 AND paid_ind = 1");
+        $query = mysqli_query($connection,"SELECT * FROM room_book rb LEFT JOIN room_dim rd ON rb.room_id = rd.room_id WHERE user_paid_ind = 1 AND paid_ind = 1 AND chckout_ind = 0");
         $rows = mysqli_num_rows($query);
 
         for($i=0;$i<$rows;$i++){
@@ -242,7 +242,8 @@
                 $rsp .= "<td>" .$result['nama_pegawai']. "</td>";
                 $rsp .= "<td>" .$result['jenis_kelamin']. "</td>";
                 $rsp .= "<td>" .$result['tgl_lahir']. "</td>";
-                $rsp .= "<td>" .$result['alamat']. "</td></tr>";
+                $rsp .= "<td>" .$result['alamat']. "</td>";
+                $rsp .= "<td><input data-id='" .$result['NIP']. "' class='btn-delete-pgw btn btn-md btn-primary btn-info btn-block' type='submit' value='Delete'></tr>";
             }
         }else{
             $rsp .= "<tr><td colspan='5'>Belum ada pegawai</td></tr>";
@@ -261,13 +262,17 @@
                 $rsp .= "<td>" .$result['nama_pegawai']. "</td>";
                 $rsp .= "<td>" .$result['jenis_kelamin']. "</td>";
                 $rsp .= "<td>" .$result['tgl_lahir']. "</td>";
-                $rsp .= "<td>" .$result['alamat']. "</td></tr>";
+                $rsp .= "<td>" .$result['alamat']. "</td>";
+                $rsp .= "<td><input data-id='" .$result['NIP']. "' class='btn-delete-pgw btn btn-md btn-primary btn-info btn-block' type='submit' value='Delete'></tr>";
             }
         }else{
             $rsp .= "<tr><td colspan='5'>NIP Tidak terdaftar</td></tr>";
         }
 
         echo $rsp;
+    }else if($txInd == "pegawai-delete"){
+        $nip = $_POST['nip'];
+        $query = mysqli_query($connection,"DELETE FROM pegawai WHERE nip = '$nip'");
     }
     
 ?>

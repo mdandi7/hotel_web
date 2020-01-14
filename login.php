@@ -31,7 +31,7 @@
             
             }  elseif($result['user_ind'] == '1'){
                         $_SESSION['login_admin']=$username; // Initializing Session
-                        header("Location: login_admin/index.php"); // Redirecting To Other Page
+                        header("Location: pemilik_login/index.php"); // Redirecting To Other Page
                     }   elseif($result['user_ind'] == '2'){
                                 $_SESSION['login_user']=$username; // Initializing Session
                                 header("Location: index.php"); // Redirecting To Other Page // SEMENTARA
