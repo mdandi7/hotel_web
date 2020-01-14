@@ -67,7 +67,7 @@
 
         $query = mysqli_query($connection, "UPDATE room_dim SET room_price = '$price', room_total = '$rmTotal' WHERE room_id = '$roomID'");
     }else if($txInd == "book-page"){
-        $query = mysqli_query($connection,"SELECT * FROM room_book rb LEFT JOIN room_dim rd ON rb.room_id = rd.room_id WHERE user_paid_ind = 1 AND paid_ind = 0");
+        $query = mysqli_query($connection,"SELECT * FROM room_book rb LEFT JOIN room_dim rd ON rb.room_id = rd.room_id WHERE user_paid_ind = 1 AND paid_ind = 0 and chckout_ind = 0");
         $rows = mysqli_num_rows($query);
 
         for($i=0;$i<$rows;$i++){
@@ -95,11 +95,38 @@
             $rsp .= "<td>" .$result['chckout_dt']. "</td></tr>";
         }
 
+        $rsp .= "|";
+        $query = mysqli_query($connection,"SELECT * FROM room_book rb LEFT JOIN room_dim rd ON rb.room_id = rd.room_id WHERE chckout_ind = 0 AND chckout_dt <= now()");
+        $rows = mysqli_num_rows($query);
+
+        for($i=0;$i<$rows;$i++){
+            $result = mysqli_fetch_assoc($query);
+            $rsp .= "<tr><td>" .$result['no_ktp']. "</td>";
+            $rsp .= "<td>" .$result['nama']. "</td>";
+            $rsp .= "<td>" .$result['room_name']. "</td>";
+            $rsp .= "<td>" .$result['total_price']. "</td>";
+            $rsp .= "<td>" .$result['chckin_dt']. "</td>";
+            $rsp .= "<td>" .$result['chckout_dt']. "</td>";
+            $rsp .= "<td><input data-id='" .$result['booking_id']. "' data-room='" .$result['room_id']. "' class='btn-confirm-ckout btn btn-md btn-primary btn-info btn-block' type='submit' value='Confirm-CheckOut'></tr>";
+        }
+
         echo $rsp;
     }else if($txInd == "confirm-book"){
         $bookId = $_POST['bookId'];
 
         $query = mysqli_query($connection, "UPDATE room_book SET paid_ind = 1 WHERE booking_id = '$bookId'");
+    }else if($txInd == "confirm-ckout"){
+        $bookId = $_POST['bookId'];
+        $roomId = $_POST['roomId'];
+
+        $query = mysqli_query($connection, "UPDATE room_book SET chckout_ind = 1 WHERE booking_id = '$bookId'");
+
+        $query = mysqli_query($connection, "SELECT * FROM room_dim WHERE room_id = '$roomId'");
+        $result = mysqli_fetch_assoc($query);
+        $roomAvail = $result['room_avail'] + 1;
+
+        $query = mysqli_query($connection, "UPDATE room_dim SET room_avail = '$roomAvail' WHERE room_id = '$roomId'");        
+
     }else if($txInd == "search-ktp"){
         $ktpNum = $_POST['ktpNum'];
         $query = mysqli_query($connection,"SELECT * FROM room_book rb LEFT JOIN room_dim rd ON rb.room_id = rd.room_id WHERE no_ktp = '$ktpNum'");

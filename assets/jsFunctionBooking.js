@@ -25,6 +25,7 @@ $(document).ready(function(){
 	  //document.getElementById("tgl1").value = fullDate;
 	};
 	fillDate();
+
 	//Booking Page
 
 	$(document).on("click",".clear-search",function(e){
@@ -43,6 +44,7 @@ $(document).ready(function(){
 
           	$(".pending-table").html(rsp[0]);
           	$(".succed-table").html(rsp[1]);
+          	$(".chckout-table").html(rsp[2]);
           },
           error: function(){
             alert("Connection to database failed!");
@@ -61,6 +63,27 @@ $(document).ready(function(){
           data : {
             txInd : "confirm-book",
             bookId : bookId,
+          },
+          complete: function(response){
+          	$(".clear-search").trigger("click");
+          },
+          error: function(){
+            alert("Connection to database failed!");
+          }
+		});
+	});
+
+	$(document).on("click",".btn-confirm-ckout",function(e){
+		var bookId = $(this).attr("data-id");
+		var roomId = $(this).attr("data-room");
+
+		$.ajax({
+		  type : 'POST',
+          url : 'ajax-all-files.php',
+          data : {
+            txInd : "confirm-ckout",
+            bookId : bookId,
+            roomId : roomId,
           },
           complete: function(response){
           	$(".clear-search").trigger("click");
