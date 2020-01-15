@@ -82,7 +82,7 @@
         }
 
         $rsp .= "|";
-        $query = mysqli_query($connection,"SELECT * FROM room_book rb LEFT JOIN room_dim rd ON rb.room_id = rd.room_id WHERE user_paid_ind = 1 AND paid_ind = 1 AND chckout_ind = 0");
+        $query = mysqli_query($connection,"SELECT * FROM room_book rb LEFT JOIN room_dim rd ON rb.room_id = rd.room_id WHERE user_paid_ind = 1 AND paid_ind = 1 AND cancel_ind = 0 AND chckout_ind = 0");
         $rows = mysqli_num_rows($query);
 
         for($i=0;$i<$rows;$i++){
@@ -96,7 +96,7 @@
         }
 
         $rsp .= "|";
-        $query = mysqli_query($connection,"SELECT * FROM room_book rb LEFT JOIN room_dim rd ON rb.room_id = rd.room_id WHERE chckout_ind = 0 AND chckout_dt <= now()");
+        $query = mysqli_query($connection,"SELECT * FROM room_book rb LEFT JOIN room_dim rd ON rb.room_id = rd.room_id WHERE chckout_ind = 0 AND cancel_ind = 0 AND chckout_dt <= now()");
         $rows = mysqli_num_rows($query);
 
         for($i=0;$i<$rows;$i++){

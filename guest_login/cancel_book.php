@@ -42,7 +42,7 @@ Reservasi Hotel
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto mr-sm-2">
       <li class="nav-item">
-        <a class="nav-link" href="index.php">Beranda<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="guest_login.php">Home<span class="sr-only">(current)</span></a>
       </li>
       <!-- <li class="nav-item">
         <a class="nav-link" href="booking.php">Registrasi</a>
