@@ -171,7 +171,7 @@
 
         echo $rsp;
     }else if($txInd == "guest-page"){
-        $query = mysqli_query($connection,"SELECT * FROM room_book rb LEFT JOIN room_dim rd ON rb.room_id = rd.room_id");
+        $query = mysqli_query($connection,"SELECT * FROM room_book rb LEFT JOIN room_dim rd ON rb.room_id = rd.room_id WHERE cancel_ind = 0 AND timeout_ind = 0");
         $rows = mysqli_num_rows($query);
 
         if($rows > 0 ){
@@ -200,7 +200,7 @@
         echo $rsp;
     }else if($txInd == "search-guest-page"){
         $ktpNum = $_POST['ktpNum'];
-        $query = mysqli_query($connection,"SELECT * FROM room_book rb LEFT JOIN room_dim rd ON rb.room_id = rd.room_id WHERE no_ktp = '$ktpNum'");
+        $query = mysqli_query($connection,"SELECT * FROM room_book rb LEFT JOIN room_dim rd ON rb.room_id = rd.room_id WHERE no_ktp = '$ktpNum' AND cancel_ind = 0 AND timeout_ind = 0");
         $rows = mysqli_num_rows($query);
 
         if($rows > 0 ){
