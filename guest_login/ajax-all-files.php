@@ -82,7 +82,7 @@
                 }elseif($result['timeout_ind'] == 1 && $result['user_paid_ind'] == 0){
                     $cancel_st = "<td>Pembayaran Pending / Timeout</tr></tr>";
                 }else{
-                    $cancel_st = "<td><input data-id='" .$result['booking_id']. "' class='btn-confirm-ckout btn btn-md btn-primary btn-info btn-block' type='submit' value='Cancel'></tr>";
+                    $cancel_st = "<td><input data-id='" .$result['booking_id']. "' class='btn-cancel-book btn btn-md btn-primary btn-info btn-block' type='submit' value='Cancel'></tr>";
                 }
 
                 
@@ -100,6 +100,11 @@
 
         echo $rsp;
 
+    }else if($txInd == "cancel-bookcd"){
+        $bkCode = $_POST['bkCd'];
+
+
+        $query_book = mysqli_query($connection, "UPDATE room_book SET cancel_ind = 1 WHERE booking_id = '$bkCode'");
     }
     
 ?>

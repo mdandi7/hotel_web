@@ -29,8 +29,27 @@ $(document).ready(function(){
           error: function(){
             alert("Connection to database failed!");
           }
-	});
+		});
 
 	});
+
+	$(document).on("click",".btn-cancel-book",function(e){
+		var bkCd = $(this).attr("data-id");
+
+		$.ajax({
+		  type : 'POST',
+          url : 'ajax-all-files.php',
+          data : {
+            txInd : "cancel-bookcd",
+            bkCd : bkCd,
+          },
+          complete: function(response){
+          	$(".btn-find-book").trigger("click");
+          },
+          error: function(){
+            alert("Connection to database failed!");
+          }
+		});
+	})
 
 });
