@@ -144,6 +144,23 @@ Reservasi Hotel
   </tbody>
 </table>
 
+  <h5 class="font-weight-bold">Konfirmasi Check-In </h5>
+  <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">No. KTP</th>
+      <th scope="col">Nama</th>
+      <th scope="col">Type Kamar</th>
+      <th scope="col">Total Harga</th>
+      <th scope="col">Check In</th>
+      <th scope="col">Check Out</th>
+      <th scope="col">Konfirmasi Check-In</th>
+    </tr>
+  </thead>
+  <tbody class="chckin-table">
+  </tbody>
+</table>
+
   <h5 class="font-weight-bold">Konfirmasi Check-Out </h5>
   <table class="table">
   <thead class="thead-dark">

@@ -110,6 +110,21 @@
             $rsp .= "<td><input data-id='" .$result['booking_id']. "' data-room='" .$result['room_id']. "' class='btn-confirm-ckout btn btn-md btn-primary btn-info btn-block' type='submit' value='Confirm-CheckOut'></tr>";
         }
 
+        $rsp .= "|";
+        $query = mysqli_query($connection,"SELECT * FROM room_book rb LEFT JOIN room_dim rd ON rb.room_id = rd.room_id WHERE chckout_ind = 0 AND chckin_ind = 0 AND paid_ind = 1 AND user_paid_ind = 1 AND cancel_ind = 0 AND timeout_ind = 0 AND chckout_dt >= now()");
+        $rows = mysqli_num_rows($query);
+
+        for($i=0;$i<$rows;$i++){
+            $result = mysqli_fetch_assoc($query);
+            $rsp .= "<tr><td>" .$result['no_ktp']. "</td>";
+            $rsp .= "<td>" .$result['nama']. "</td>";
+            $rsp .= "<td>" .$result['room_name']. "</td>";
+            $rsp .= "<td>" .$result['total_price']. "</td>";
+            $rsp .= "<td>" .$result['chckin_dt']. "</td>";
+            $rsp .= "<td>" .$result['chckout_dt']. "</td>";
+            $rsp .= "<td><input data-id='" .$result['booking_id']. "' data-room='" .$result['room_id']. "' class='btn-confirm-ckin btn btn-md btn-primary btn-info btn-block' type='submit' value='Confirm-CheckIn'></tr>";
+        }
+
         echo $rsp;
     }else if($txInd == "confirm-book"){
         $bookId = $_POST['bookId'];
@@ -273,6 +288,10 @@
     }else if($txInd == "pegawai-delete"){
         $nip = $_POST['nip'];
         $query = mysqli_query($connection,"DELETE FROM pegawai WHERE nip = '$nip'");
+    }else if($txInd == "confirm-chckin-bt"){
+        $bkCd = $_POST['bkCd'];
+        
+        $query = mysqli_query($connection,"UPDATE room_book SET chckin_ind = 1 WHERE booking_id = '$bkCd'");
     }
     
 ?>

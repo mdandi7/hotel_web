@@ -45,6 +45,7 @@ $(document).ready(function(){
           	$(".pending-table").html(rsp[0]);
           	$(".succed-table").html(rsp[1]);
           	$(".chckout-table").html(rsp[2]);
+            $(".chckin-table").html(rsp[3]);
           },
           error: function(){
             alert("Connection to database failed!");
@@ -271,4 +272,23 @@ $(document).ready(function(){
           }
 		});
 	});
+
+  $(document).on("click",".btn-confirm-ckin", function(e){
+    var bkCd = $(this).attr("data-id");
+
+    $.ajax({
+      type : 'POST',
+          url : 'ajax-all-files.php',
+          data : {
+            txInd : "confirm-chckin-bt",
+            bkCd : bkCd,
+          },
+          complete: function(response){
+            $(".clear-search").trigger("click");
+          },
+          error: function(){
+            alert("Connection to database failed!");
+          }
+    });    
+  })
 });
