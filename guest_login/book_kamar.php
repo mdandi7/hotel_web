@@ -170,7 +170,7 @@ Reservasi Hotel
               <input type="number" class="form-control" id="ttlByr" placeholder="Total Bayar" readonly="readonly">
             </div>
           </div>
-          <input type="text" class="invisible" id="book_time" name="book_time" placeholder="Lapangan"  required="required" readonly="readonly">
+          <input type="text" class="invisible" id="book_time" name="book_time" required="required" readonly="readonly">
 
           </form>
           </div>
